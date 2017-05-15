@@ -23,7 +23,7 @@ class CreateEvaluationsTable extends Migration
             $table->engine='InnoDB';
             $table->timestamps();
             //relations
-            $table->foreign('stepss_id')->references('id')->on('steps')->OnDelete('cascade');
+            $table->foreign('steps_id')->references('id')->on('steps')->OnDelete('cascade');
         });
     }
 

@@ -32,6 +32,6 @@ class CreateJudgeByStepsTable extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExists('judge_by_steps');//
     }
 }

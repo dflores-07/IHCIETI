@@ -19,14 +19,14 @@ class CreateResultsTable extends Migration
             $table->string('escore2');
             $table->string('eobservations');
             $table->integer('evaluation_id')->unsigned()->index();
-            $table->integer('judge_by_steps_id')->unsigned()->index();
-            $table->integer('project_id')->unsigned()->index();
+            $table->integer('judge_by_step_id')->unsigned()->index();
+            $table->integer('project_by_step_id')->unsigned()->index();
             $table->engine='InnoDB';
             $table->timestamps();
             //relations
-            $table->foreign('evaluation_id')->references('id')->on('evaluations')->OnDelete('cascade');
-            $table->foreign('project_by_steps')->references('id')->on('project_by_steps')->OnDelete('cascade');
-            $table->foreign('judge_by_steps_id')->references('id')->on('judge_by_steps')->OnDelete('cascade');
+            $table->foreign('evaluation_id')->references('id')->on('evaluations')->onDelete('cascade');
+            $table->foreign('project_by_step_id')->references('id')->on('project_by_steps')->onDelete('cascade');
+            $table->foreign('judge_by_step_id')->references('id')->on('judge_by_steps')->onDelete('cascade');
         });
     }
 

@@ -22,7 +22,7 @@ class CreateMembersTable extends Migration
             $table->string('birthday');
             $table->string('age');
             $table->integer('project_id')->unsigned()->index();
-            $table->foreign('project_id')->references('id')->on('projets')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();
                  $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
        $table->engine='InnoDB';

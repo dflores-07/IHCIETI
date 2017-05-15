@@ -20,8 +20,8 @@ class CreateProjectByStepsTable extends Migration
             $table->engine='InnoDB';
             $table->timestamps();
             //relations
-            $table->foreign('step_id')->references('id')->on('steps')->OnDelete('cascade');
-            $table->foreign('project_id')->references('id')->on('projects')->OnDelete('cascade');
+            $table->foreign('step_id')->references('id')->on('steps')->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateProjectByStepsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('project_by_steps'); //
     }
 }
