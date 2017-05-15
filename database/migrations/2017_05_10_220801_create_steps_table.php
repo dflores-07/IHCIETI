@@ -11,9 +11,16 @@ class CreateStepsTable extends Migration
      *
      * @return void
      */
-    public function up()
+      public function up()
     {
-        //
+        Schema::create('steps', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('incriptions');
+            $table->string('evaluation');
+            $table->string('staracademy');
+            $table->engine='InnoDB';
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreateStepsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('steps');
     }
 }

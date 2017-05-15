@@ -13,7 +13,16 @@ class CreateProjectByStepsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('project_by_steps', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('project_id')->unsigned()->index();
+            $table->integer('step_id')->unsigned()->index();
+            $table->engine='InnoDB';
+            $table->timestamps();
+            //relations
+            $table->foreign('step_id')->references('id')->on('steps')->OnDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')->OnDelete('cascade');
+        });
     }
 
     /**

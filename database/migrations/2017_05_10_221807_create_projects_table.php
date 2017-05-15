@@ -13,7 +13,21 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('projets', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->string('sector');
+            $table->string('budget');
+            $table->string('budgetfile');
+            $table->string('help');
+            $table->string('whohelp');
+            $table->string('helpcount');
+            $table->string('observation');
+            $table->engine='InnoDB';
+            $table->timestamps();
+            //relations
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('projets');
     }
 }

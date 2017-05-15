@@ -11,9 +11,20 @@ class CreateEvaluationsTable extends Migration
      *
      * @return void
      */
-    public function up()
+   public function up()
     {
-        //
+        Schema::create('evaluations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('score1');
+            $table->string('score2');
+            $table->string('observations');
+            $table->engine='InnoDB';
+            $table->integer('steps_id')->unsigned()->index();
+            $table->engine='InnoDB';
+            $table->timestamps();
+            //relations
+            $table->foreign('stepss_id')->references('id')->on('steps')->OnDelete('cascade');
+        });
     }
 
     /**
@@ -23,6 +34,6 @@ class CreateEvaluationsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('evaluations');
     }
 }

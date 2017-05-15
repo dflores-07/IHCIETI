@@ -11,9 +11,23 @@ class CreateResultsTable extends Migration
      *
      * @return void
      */
-    public function up()
+ public function up()
     {
-        //
+        Schema::create('results', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('escore1');
+            $table->string('escore2');
+            $table->string('eobservations');
+            $table->integer('evaluation_id')->unsigned()->index();
+            $table->integer('judge_by_step_id')->unsigned()->index();
+            $table->integer('project_id')->unsigned()->index();
+            $table->engine='InnoDB';
+            $table->timestamps();
+            //relations
+            $table->foreign('evaluation_id')->references('id')->on('evaluations')->OnDelete('cascade');
+            $table->foreign('project_by_step')->references('id')->on('project_by_steps')->OnDelete('cascade');
+            $table->foreign('judge_by_step_id')->references('id')->on('judge_by_steps')->OnDelete('cascade');
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('results');
     }
 }
