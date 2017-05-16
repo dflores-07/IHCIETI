@@ -4,6 +4,10 @@
 html{
   height: 100%;
 }
+
+#home{
+  width: 100%;
+}
 .formoid-solid-red{
   margin:0 auto;
 }
@@ -1374,3 +1378,4 @@ bootstrap
   width: 16px;
   height: 16px;
 }
+
