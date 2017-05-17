@@ -10,12 +10,38 @@
 
 
 <!-- Formulario Sección Lider-->
+<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
 <link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
-<script type="text/javascript" src="formprueba_files/formoid1/jquery.min.js"></script>
-<div id="home" >
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<div id="app" class="row" >
 <form class="formoid-solid-red" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post"><div class="title"><h2>Honduras Startup - MiPymes</h2></div>
-    <div class="element-number" title="Número de Identidad Lider"><label class="title"><span class="required">*</span></label><div class="item-cont"><input class="medium" type="text" min="0" max="18" name="number" required="required" placeholder="Número de Identidad Lider" value=""/><span class="icon-place"></span></div></div>
-    <div class="element-name"><label class="title"><span class="required">*</span></label><span class="nameFirst"><input placeholder="Primer Nombre Lider" type="text" size="8" name="name[first]" required="required"/><span class="icon-place"></span></span><span class="nameLast"><input placeholder="Segundo Nombre Lider" type="text" size="14" name="name[last]" required="required"/><span class="icon-place"></span></span></div>
+ <div class="row">
+    <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
+        <label class="title">
+            Numero Cedula
+        </label>
+        <div class="input-group ">
+            <span class="input-group-addon"><i class="fa fa-bell"></i></span>
+            <input class="form-control" type="text" min="0" max="18" name="number" required="required" placeholder="Número de Identidad Lider" value=""/>
+        </div>
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <label class="title">
+            Primer Nombre
+        </label>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input placeholder="Primer Nombre Lider" class="form-control" type="text" size="8" name="name[first]" required="required"/>
+        </div>
+    </div>
+     <div class="col-sm-4 col-md-4">
+         <label class="title">Segundo Nombre</label>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-bed"></i></span>
+            <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" name="name[last]" required="required"/>
+        </div>
+     </div>
     <div class="element-input" title="Primer Apellido"><label class="title"><span class="required">*</span></label><div class="item-cont"><input class="large" type="text" name="input1" required="required" placeholder="Primer Apellido Lider"/><span class="icon-place"></span></div></div>
     <div class="element-input" title="Segundo Apellido"><label class="title"><span class="required">*</span></label><div class="item-cont"><input class="large" type="text" name="input2" required="required" placeholder="Segundo Apellido Lider"/><span class="icon-place"></span></div></div>
     <div class="element-date" title="Fecha de Nacimiento"><label class="title"><span class="required">*</span></label><div class="item-cont"><input class="large" data-format="yyyy-mm-dd" type="date" name="date" required="required" placeholder="Fecha de Nacimiento Lider"/><span class="icon-place"></span></div></div>
@@ -110,6 +136,7 @@
 <!-- Finaliza Formulario-->
 
 </div>
-
+<script src="{{mix("js/app.js")}}"></script>
+<script src="https://use.fontawesome.com/a9aa1689da.js"></script>
 </body>
 </html>
