@@ -5,9 +5,10 @@
 // Variables
 @import "variables";
 
-// font awesome
-//@import "font-awesome-sprockets";
-//@import "font-awesome";
+
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// font awesome
+@import "node_modules/font-awesome-sass/assets/stylesheets/font-awesome";
