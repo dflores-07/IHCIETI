@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\felicitacionesRegistro;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -60,12 +64,30 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create($data)
     {
-        return User::create([
+
+
+        $profile = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'identification_card' => $data['identification_card'],
+            'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
+        Mail::send("email/emailEvento", compact('profile'), function($m) use($profile)
+        {
+            $m->from('david.flores@senacit.gob.hn','IHCEITI');
+
+            //receptor
+            $m->to($profile->email, $profile->name)->subject("Inscripcion");
+
+        });
+        return $profile;
+    }
+
+    public function email()
+    {
+        return view('email.emailEvento');
     }
 }
