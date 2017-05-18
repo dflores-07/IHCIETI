@@ -9,10 +9,12 @@
 @extends('layouts.system')
 
 <div class="content">
-    <div class="text-center row"><h4>Bienvenido : {{$profile->name}}</h4></div>
+    <div class="text-center row"><h2>Bienvenido : {{$profile->name}}</h2></div>
     <div class="text-center row"><img src="http://robotschallenge.hondurastartup.com/wp-content/uploads/2017/05/ROBOTDRONECHALLENGE.png" width="200" height="100"></div>
 
-    <div class="text-center row"><p>Te has registrado con exito al evento de este proximo sabado, te esperamos.</p></div>
+    <div class="text-center row"><h3>Te has registrado con Éxito al Curso Básico de Róbotica..</h3></div>
+
+    	<div class="text-center row"><h4>Este próximo sábado 20 de Mayo 2017, Te Esperamos..</h4></div>
 
 
 </div>
