@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->action('LoginController@logout');
+        return redirect()->action('Auth\LoginController@logout');
     }
 }
