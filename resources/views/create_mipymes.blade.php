@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Honduras Startup - MiPymes</title>
+    <title>Robots-Drones Challenge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="blurBg-false" style="background-color:#EBEBEB">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 <div id="app" class="row" >
-    <form class="formoid-solid-red" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post"><div class="title"><h2>Honduras Startup - MiPymes</h2></div>
+    <form class="formoid-solid-red" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post"><div class="title"><h2>Robots-Drones Challenge</h2></div>
         <div class="row">
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">

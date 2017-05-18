@@ -8,7 +8,7 @@
                     <div class="panel-heading">Felicidades!!</div>
 
                     <div class="panel-body">
-                        Se registro con Exito
+                        Se registó con Éxito
                     </div>
                 </div>
             </div>
