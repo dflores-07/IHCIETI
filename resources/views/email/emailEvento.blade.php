@@ -10,7 +10,7 @@
 
 <div class="content">
     <div class="text-center row"><h2>Bienvenido : {{$profile->name}}</h2></div>
-    <div class="text-center row"><img src="http://robotschallenge.hondurastartup.com/wp-content/uploads/2017/05/ROBOTDRONECHALLENGE.png" width="200" height="100"></div>
+    <div class="text-center row"><img src="http://robotschallenge.hondurastartup.com/wp-content/uploads/2017/05/logo.png" width="350" height="150"></div>
 
     <div class="text-center row"><h3>Te has registrado con Éxito al Curso Básico de Róbotica..</h3></div>
 
