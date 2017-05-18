@@ -38,13 +38,11 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-    public function logout(Request $request)
+    public function closed()
     {
         $this->guard()->logout();
 
-        $request->session()->flush();
 
-        $request->session()->regenerate();
 
         return redirect('http://robotschallenge.hondurastartup.com/');
     }
