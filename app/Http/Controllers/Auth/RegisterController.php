@@ -83,7 +83,7 @@ class RegisterController extends Controller
             $m->to($profile->email, $profile->name)->subject("Inscripcion");
 
         });
-        return redirect('http://robotschallenge.hondurastartup.com/');
+        return $profile;
     }
 
     public function email()
