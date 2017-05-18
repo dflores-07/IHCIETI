@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('identification_card') ? ' has-error' : '' }}">
-                            <label for="identification_card" class="col-md-4 control-label">Numero de Cedula</label>
+                            <label for="identification_card" class="col-md-4 control-label">Numero de Identidad</label>
 
                             <div class="col-md-6">
                                 <input id="identification_card" type="text" class="form-control" name="identification_card" value="{{ old('identification_card') }}" required autofocus>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Telefono</label>
+                            <label for="email" class="col-md-4 control-label">Teléfono</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="number" class="form-control" prefix="00000000" maxlength="8" minlength="8" name="phone" value="{{ old('phone') }}" required>
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Correo Electronico</label>
+                            <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
