@@ -77,7 +77,7 @@ class RegisterController extends Controller
         ]);
         Mail::send("email/emailEvento", compact('profile'), function($m) use($profile)
         {
-            $m->from('david.flores@senacit.gob.hn','IHCEITI');
+            $m->from('no-reply@hondurastartup.com','IHCIETI');
 
             //receptor
             $m->to($profile->email, $profile->name)->subject("Inscripcion");
