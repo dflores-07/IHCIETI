@@ -11,6 +11,12 @@ class PitchController extends Controller
      *
      * @return void
      */
+
+    public function PitchController()
+    {
+
+
+    }
     public function __construct()
     {
        
