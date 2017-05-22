@@ -46,9 +46,10 @@ class felicitacionesRegistro extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Bienvenido al Taller Basico de Robotica')
-                    ->line('Gracias por inscribirte!')
-                    ->line('Te esperamos');
+                    ->line('Bienvenid@!!')
+                    ->line('En base a la metodología de selección,')
+                    ->line('Te felicitamos por ser seleccionado');
+                    ->line('para presentar tu Pitch..s');
     }
 
     /**
