@@ -12,11 +12,7 @@ class PitchController extends Controller
      * @return void
      */
 
-    public function PitchController()
-    {
 
-
-    }
     public function __construct()
     {
        
@@ -28,8 +24,16 @@ class PitchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function index()
     {
         return redirect('/cerrar-sesion');
     }
+
+     public function PitchController()
+    {
+        return view('Registro_Pitch');
+    }
+
+
 }
