@@ -30,9 +30,9 @@ class PitchController extends Controller
         return redirect('/cerrar-sesion');
     }
 
-     public function Registro_Pitch()
+     public function create_mipymes()
     {
-        return view('Registro_Pitch');
+        return view('create_mipymes');
     }
 
 

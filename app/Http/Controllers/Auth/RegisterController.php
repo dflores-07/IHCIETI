@@ -88,6 +88,9 @@ class RegisterController extends Controller
 
     public function email()
     {
+        return view(' public function PitchController()
+    {
         return view('email.emailEvento');
+    }');
     }
 }
