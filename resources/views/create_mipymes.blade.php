@@ -14,8 +14,11 @@
 <link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
+<!--Los nombre de los campos no llevan corchete ni llaves -->
+
 <div id="app" class="row" >
-    <form class="formoid-solid-red" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post"><div class="title"><h2>Robots-Drones Challenge</h2></div>
+    <form class="formoid-solid-red" action="{{route('createMiPyme')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
+        <div class="title"><h2>Robots-Drones Challenge</h2></div>
         <div class="row">
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">
@@ -32,7 +35,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input placeholder="Primer Nombre Lider" class="form-control" type="text" size="8" name="name[first]" required="required"/>
+                    <input placeholder="Primer Nombre Lider" class="form-control" type="text" size="8" name="fname" required="required"/>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4">
@@ -167,8 +170,9 @@
                 </div>
             </div>
 
-            <div class="submit"><input type="submit" value="Enviar"/></div></form><p class="frmd"><a href="">Validación Formulario</a> Hondurastartup MiPyme Form</p>
-    <!-- Finaliza Formulario-->
+            <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>
+
+           <!-- Finaliza Formulario-->
 
     <!-- Formulario Sección Integrantes-->
     <link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
@@ -176,7 +180,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <div id="app" class="row" >
-        <form class="formoid-solid-red" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post"><div class="title"><h2>Honduras Startup - MiPymes</h2></div>
+        <div  class="title formoid-solid-red"><h2>Honduras Startup - MiPymes</h2></div>
             <div class="row">
                 <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                     <label class="title">
@@ -328,6 +332,19 @@
                     </div>
                 </div>
 
+                <div class="col-sm-12 col-md-12">
+                    <label class="title">Dirección Exacta</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                        <input placeholder="Dirección Exacta Lider" class="form-control" type="address" name="address" required="required" />
+                    </div>
+                </div>
+                </div>
+            <div class="col-sm-12 col-md-12 submit">
+                <input type="submit" value="Enviar"/>
+            </div>
+
+        </form>
                 <!-- Finaliza Formulario-->
 
             </div>

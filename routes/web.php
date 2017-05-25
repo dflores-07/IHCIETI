@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Registro_Pitch', 'PitchController@Registro_Pitch');
-Route::get('/create_mipymes', 'mipymeController@create_mipymes');
+Route::get('/create_mipymes', 'mipymeController@create');
+Route::post('/create_mipymes', ['as'=>'createMiPyme','uses'=>'mipymeController@store']);
 Route::get('/cerrar-sesion', ['as'=>'close_envento','uses'=>'Auth\LoginController@closed']);
 //Route::get('/evento', ['as'=>'envento','uses'=>'Auth\RegisterController@email'])->name('Inscricion');
