@@ -40,7 +40,7 @@ class mipymeController extends Controller
 
     public function store()
     {
-        $datos = Input::all();
+        $datos = Input::all('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
 
      //aqui va los datos del lider
         $member = new Member();
@@ -48,7 +48,7 @@ class mipymeController extends Controller
         $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
         $member->save();
 //aqui lo datos del otro participante
-        $member = new Member();
+        $member = new Member('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
 
         $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
         $member->save();
