@@ -17,8 +17,8 @@
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
 <div id="app" class="row" >
-    <form class="formoid-solid-red" action="{{route('createMiPyme')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
-        <div class="title"><h2>Honduras Startup - Emprendimiento Tradicional</h2></div>
+    <form class="formoid-solid-red" action="{{route('saveLeader')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
+        <div class="title"><h2>Honduras Startup - {{$project->name}}</h2></div>
         <div class="row">
 <div class="title"><h2>Datos de los Integrantes</h2></div>
         <div class="row">
@@ -26,9 +26,12 @@
                 <label class="title">
                     Numero Cédula
                 </label>
-                <div class="input-group ">
+                <div class="input-group ">{{csrf_field()}}
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
                     <input class="form-control" type="text" min="0" max="18" name="idnumber" required="required" placeholder="Número de Identidad Lider" value=""/>
+                    <input class="form-control" type="hidden"  name="project_id"  value="{{$project->id}}"/>
+                    <input class="form-control" type="hidden"  name="acount"  value="{{$acount}}"/>
+                    <input class="form-control" type="hidden"  name="members"  value="si"/>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4">
@@ -73,12 +76,11 @@
                 <div class="input-group">
                     <span class="input-group-addon"> <i class="fa fa-venus-mars"></i></span>
                     <div class="column column2">
-                        <label><input type="radio" name="radio" value="Masculino" required="required"/><span>Masculino</span></label></div>
+                        <label><input type="radio" name="genre" value="Masculino" required="required"/><span>Masculino</span></label></div>
                     <span class="clearfix"></span>
                     <div class="column column2">
-                        <label><input type="radio" name="radio" value="Femenino" required="required"/><span>Femenino</span></label></div>
+                        <label><input type="radio" name="genre" value="Femenino" required="required"/><span>Femenino</span></label></div>
                     <span class="clearfix"></span>
-                    <input placeholder="Género" type="radio" name="radio" class="form-control" size="14" name="genre" required="required"/>
                 </div>
             </div>
 
@@ -145,7 +147,7 @@
                 <label class="title">Correo Electrónico</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" name="email" required="required"/>
+                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" name="Email" required="required"/>
                 </div>
             </div>
 
@@ -176,10 +178,15 @@
                 </div>
             </div>
 
-
+            <div style="margin: 5px" class="text-center row col-sm-12 col-md-12">
+                <div class="text-center ">
+                    <input  class="btn btn-success" type="submit"  value="Siguiente Paso" />
+                </div>
+            </div>
+        </div>
             <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>
-
-           <!-- Finaliza Formulario-->
+    </form>
+</div>    <!-- Finaliza Formulario-->
 
     <!-- Formulario Sección Integrantes-->
 

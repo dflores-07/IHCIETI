@@ -24,8 +24,10 @@ Route::get('/create-project', ['as'=>'createProject','uses'=>'ProjectController@
 Route::post('/create-project', ['as'=>'saveProject','uses'=>'ProjectController@store']);
 
 Route::get('/create-leader/{id}/{acount}', ['as'=>'createLeader','uses'=>'mipymeController@createLeader']);
-Route::get('/create-members/{members}', ['as'=>'createMembers','uses'=>'mipymeController@createMembers']);
+Route::get('/create-members/{id}/{acount}', ['as'=>'createMembers','uses'=>'mipymeController@createMembers']);
 Route::post('/create-leader', ['as'=>'saveLeader','uses'=>'mipymeController@store']);
+
+Route::get('/finish/{id}', ['as'=>'fin','uses'=>'mipymeController@fin']);
 // Fin de cambios
 
 Route::get('/cerrar-sesion', ['as'=>'close_envento','uses'=>'Auth\LoginController@closed']);

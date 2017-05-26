@@ -46,8 +46,15 @@ class mipymeController extends Controller
 
      //aqui va los datos del lider
         $member = new Member();
-
-        $member->type = 'leader';
+        //Comprobamos que venimos del formulario de miembros
+        if(key_exists('members',$datos)):
+                $member->type = 'members';
+        // aqui vamos rebajando la cantidad de miembros para saber si debe repetir la vista de miembros
+            $datos['acount'] = $datos['acount'] -1;
+        else:
+                $member->type = 'leader';
+        endif;
+        $member->project_id = $datos['project_id'];
         $member->idnumber = $datos['idnumber'];
         $member->fname = $datos['fname'];
         $member->flname = $datos['flname'];
@@ -64,25 +71,25 @@ class mipymeController extends Controller
 
          // 'aqui va el dato que guardaras ejemplo'
         $member->save();
-        echo json_encode($member);
-        die;
-//aqui lo datos del otro participante
-        $member = new Member();
 
-        $member->type = $datos['type']; // 'aqui va el dato que guardaras ejemplo'
-        $member->lidnumber = $datos['identification_card'];
-        $member->fname = $datos['fname'];
-        $member->sname = $datos['sname'];
-        $member->birthdate = $datos['birthdate'];
-        $member->genre = $datos['genre'];
-        $member->province = $datos['province'];
-        $member->city = $datos['city'];
-        $member->school = $datos['school'];
-        $member->Email = $datos['Email'];
-        $member->phone = $datos['phone'];
-        $member->cellphone = $datos['cellphone'];
-        $member->address = $datos['address'];
-        $member->save();
+        if($datos['acount']=='' || $datos['acount']<=0):
+            return redirect()->route('fin',$member->project_id);
+        else:
+            // regresamos a la vista de nuevo miembros si se debe agregar mas
+            return redirect()->route('createMembers',[$member->project_id,$datos['acount']]);
+        endif;
+    }
+
+    public function createMembers($id,$acount)
+    {
+        $project = Project::find($id);
+        return view('members.create_members', compact('project', 'acount'));
+    }
+
+        public function fin($id)
+    {
+        $project = Project::find($id);
+        return view('proyects.finish',compact('project'));
     }
 
 }

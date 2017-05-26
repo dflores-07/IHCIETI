@@ -77,8 +77,6 @@
                     <span class="clearfix"></span>
                     <div class="column column2">
                         <label><input type="radio" name="genre" value="Femenino" required="required"/><span>Femenino</span></label></div>
-                    <span class="clearfix"></span>
-                    <input placeholder="Género" type="radio" name="radio" class="form-control" size="14" name="genre" required="required"/>
                 </div>
             </div>
 
