@@ -145,7 +145,7 @@
                 <label class="title">Correo Electrónico</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" name="email" required="required"/>
+                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" name="Email" required="required"/>
                 </div>
             </div>
 
