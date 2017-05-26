@@ -43,14 +43,41 @@ class mipymeController extends Controller
         $datos = Input::all();
 
      //aqui va los datos del lider
-        $member = new Member('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
+        $member = new Member();
 
-        $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
-        $member->save('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
+        $member->type = $member['type'];
+        $member->lidnumber = $member['lidnumber'];
+        $member->fname = $member['fname'];
+        $member->sname = $member['sname'];
+        $member->birthdate = $member['birthdate'];
+        $member->genre = $member['genre'];
+        $member->province = $member['province'];
+        $member->city = $member['city'];
+        $member->school = $member['school'];
+        $member->Email = $member['Email'];
+        $member->phone = $member['phone'];
+        $member->cellphone = $member['cellphone'];
+        $member->address = $member['address'];
+
+         // 'aqui va el dato que guardaras ejemplo'
+        $member->save();
 //aqui lo datos del otro participante
         $member = new Member();
 
         $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
+        $member->type = $member['type'];
+        $member->lidnumber = $member['lidnumber'];
+        $member->fname = $member['fname'];
+        $member->sname = $member['sname'];
+        $member->birthdate = $member['birthdate'];
+        $member->genre = $member['genre'];
+        $member->province = $member['province'];
+        $member->city = $member['city'];
+        $member->school = $member['school'];
+        $member->Email = $member['Email'];
+        $member->phone = $member['phone'];
+        $member->cellphone = $member['cellphone'];
+        $member->address = $member['address'];
         $member->save();
     }
 
