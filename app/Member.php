@@ -23,4 +23,3 @@ class Member extends Model
         'password', 'remember_token',
     ];
 }
-}
