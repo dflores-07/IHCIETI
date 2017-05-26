@@ -48,7 +48,7 @@ class mipymeController extends Controller
         $member = new Member();
 
         $member->type = 'leader';
-        $member->lidnumber = $datos['idnumber'];
+        $member->idnumber = $datos['idnumber'];
         $member->fname = $datos['fname'];
         $member->flname = $datos['flname'];
         $member->slname = $datos['slname'];
