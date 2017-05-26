@@ -17,6 +17,7 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->enum('type',['members','leader']);
             
+            $table->integer('idnumber');
             $table->string('fname');
             $table->string('flname');
             $table->string('slname');
