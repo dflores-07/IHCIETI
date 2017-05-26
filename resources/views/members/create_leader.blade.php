@@ -17,8 +17,8 @@
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
 <div id="app" class="row" >
-    <form class="formoid-solid-red" action="{{route('createLeader')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
-        <div class="title"><h2>Honduras Startup - Emprendimiento Tradicional</h2></div>
+    <form class="formoid-solid-red" action="{{route('saveLeader')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
+        <div class="title"><h2>Honduras Startup - Nuestro proyecto {{$project->name}}</h2></div>
         <div class="row">{{csrf_field()}}
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">
@@ -27,6 +27,8 @@
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
                     <input class="form-control" type="text" min="0" max="18" name="lidnumber" required="required" placeholder="Número de Identidad Lider" value=""/>
+                    <input class="form-control" type="hidden"  name="project_id"  value="{{$project->id}}"/>
+                    <input class="form-control" type="hidden"  name="acount"  value="{{$acount}}"/>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4">

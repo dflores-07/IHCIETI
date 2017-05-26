@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -32,9 +33,10 @@ class mipymeController extends Controller
         return redirect('/cerrar-sesion');
     }
 
-     public function createLeader()
+     public function createLeader($id,$acount)
     {
-        return view('members.create_leader');
+        $project = Project::find($id);
+        return view('members.create_leader',compact('project','acount'));
     }
 
 
@@ -61,6 +63,8 @@ class mipymeController extends Controller
 
          // 'aqui va el dato que guardaras ejemplo'
         $member->save();
+        echo json_encode($member);
+        die;
 //aqui lo datos del otro participante
         $member = new Member();
 

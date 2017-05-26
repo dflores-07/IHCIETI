@@ -20,9 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Registro_Pitch', 'PitchController@Registro_Pitch');
 //Cambios hechos por Anwar
-Route::get('/create-leader', ['as'=>'createLeader','uses'=>'mipymeController@createLeader']);
+Route::get('/create-project', ['as'=>'createProject','uses'=>'ProjectController@create']);
+Route::post('/create-project', ['as'=>'saveProject','uses'=>'ProjectController@store']);
+
+Route::get('/create-leader/{id}/{acount}', ['as'=>'createLeader','uses'=>'mipymeController@createLeader']);
 Route::get('/create-members/{members}', ['as'=>'createMembers','uses'=>'mipymeController@createMembers']);
-Route::post('/create-leader', ['as'=>'createLeader','uses'=>'mipymeController@store']);
+Route::post('/create-leader', ['as'=>'saveLeader','uses'=>'mipymeController@store']);
 // Fin de cambios
 
 Route::get('/cerrar-sesion', ['as'=>'close_envento','uses'=>'Auth\LoginController@closed']);
