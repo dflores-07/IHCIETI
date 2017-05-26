@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $fillable = ['type', 'idnumber',
+    protected $fillable = ['type', 'idnumber', ['members','leader']
         'fname', 'flname', 'slname'
         'birthdate','genre',
         'province', 'city', 'school',
