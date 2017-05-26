@@ -26,7 +26,7 @@
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" min="0" max="18" name="number" required="required" placeholder="Número de Identidad Lider" value=""/>
+                    <input class="form-control" type="text" min="0" max="18" name="lidnumber" required="required" placeholder="Número de Identidad Lider" value=""/>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4">
@@ -86,7 +86,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"> <i class="fa fa-globe"></i></span>
 
-                        <span><select name="select" required="required">
+                        <span><select name="province" required="required">
                           <option value="Islas de la Bahía ">Islas de la Bahía </option>
                             <option value="Cortés ">Cortés </option>
                             <option value="Atlántida ">Atlántida </option>
@@ -113,7 +113,7 @@
                     <label class="title"><span class="required">Municipios</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                        <select name="select" required="required">
+                        <select name="city" required="required">
                             <option value="option 1">option 1</option>
                             <option value="option 2">option 2</option>
                             <option value="option 3">option 3</option>
@@ -128,7 +128,7 @@
                     <label class="title">Grado de Escolaridad</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                        <select name="select2" required="required" >
+                        <select name="school" required="required" >
                             <option value="Secundaria">Secundaria</option>
                             <option value="Universitaria">Universitaria</option>
                             <option value="Postgrado">Postgrado</option>
@@ -256,7 +256,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"> <i class="fa fa-globe"></i></span>
 
-                        <span><select name="select" required="required">
+                        <span><select name="province" required="required">
                           <option value="Islas de la Bahía ">Islas de la Bahía </option>
                             <option value="Cortés ">Cortés </option>
                             <option value="Atlántida ">Atlántida </option>
@@ -283,7 +283,7 @@
                     <label class="title"><span class="required">Municipios</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                        <select name="select" required="required">
+                        <select name="city" required="required">
                             <option value="option 1">option 1</option>
                             <option value="option 2">option 2</option>
                             <option value="option 3">option 3</option>
@@ -298,7 +298,7 @@
                     <label class="title">Grado de Escolaridad</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                        <select name="select2" required="required" >
+                        <select name="school" required="required" >
                             <option value="Secundaria">Secundaria</option>
                             <option value="Universitaria">Universitaria</option>
                             <option value="Postgrado">Postgrado</option>
