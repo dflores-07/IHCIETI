@@ -50,7 +50,8 @@ class mipymeController extends Controller
         $member->type = 'leader';
         $member->lidnumber = $datos['idnumber'];
         $member->fname = $datos['fname'];
-        $member->sname = $datos['sname'];
+        $member->flname = $datos['flname'];
+        $member->slname = $datos['slname'];
         $member->birthdate = $datos['birthdate'];
         $member->genre = $datos['genre'];
         $member->province = $datos['province'];
