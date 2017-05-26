@@ -17,7 +17,6 @@ class Member extends Model
     protected $fillable = ['type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address'];
 
 
- @var array
     
     protected $hidden = [
         'password', 'remember_token',
