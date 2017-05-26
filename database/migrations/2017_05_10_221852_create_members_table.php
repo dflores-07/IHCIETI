@@ -24,11 +24,11 @@ class CreateMembersTable extends Migration
             $table->string('city');
             $table->string('school');
             $table->string('birthdate');
+            $table->string('age');
+            $table->string('phone');
             $table->string('cellphone');
             $table->string('address');
             $table->string('genre');
-            $table->string('phone');
-            $table->string('age');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();
