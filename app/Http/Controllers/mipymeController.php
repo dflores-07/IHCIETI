@@ -32,9 +32,9 @@ class mipymeController extends Controller
         return redirect('/cerrar-sesion');
     }
 
-     public function create()
+     public function createLeader()
     {
-        return view('create_mipymes');
+        return view('members.create_leader');
     }
 
 

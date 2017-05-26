@@ -12,14 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('createLeader');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/Registro_Pitch', 'PitchController@Registro_Pitch');
-Route::get('/create_mipymes', 'mipymeController@create');
-Route::post('/create_mipymes', ['as'=>'createMiPyme','uses'=>'mipymeController@store']);
+//Cambios hechos por Anwar
+Route::get('/create-leader', ['as'=>'createLeader','uses'=>'mipymeController@createLeader']);
+Route::get('/create-members/{members}', ['as'=>'createMembers','uses'=>'mipymeController@createMembers']);
+Route::post('/create-leader', ['as'=>'createLeader','uses'=>'mipymeController@store']);
+// Fin de cambios
+
 Route::get('/cerrar-sesion', ['as'=>'close_envento','uses'=>'Auth\LoginController@closed']);
 //Route::get('/evento', ['as'=>'envento','uses'=>'Auth\RegisterController@email'])->name('Inscricion');
