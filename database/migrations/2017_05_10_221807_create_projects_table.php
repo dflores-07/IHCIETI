@@ -18,11 +18,12 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('sector');
-            $table->string('budget');
+            $table->decimal('budget',20,2);
             $table->string('budgetfile');
-            $table->string('help');
+            $table->string('has_received_help');
+            $table->string('who_has_received_help');
             $table->string('whohelp');
-            $table->string('helpcount');
+            $table->decimal('helpcount',20,2);
             $table->string('observation');
             $table->engine='InnoDB';
             $table->timestamps();
