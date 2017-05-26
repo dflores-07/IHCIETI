@@ -174,21 +174,8 @@
                 </div>
             </div>
 
-            <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>
 
-           <!-- Finaliza Formulario-->
-
-    <!-- Formulario Sección Integrantes-->
-
-<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
-<link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-<!--Los nombre de los campos no llevan corchete ni llaves -->
-
-<div id="app" class="row" >
-    <form class="formoid-solid-red" action="{{route('createMiPyme')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
-        <div class="title"><h2>Datos de los Integrantes</h2></div>
+<div class="title"><h2>Datos de los Integrantes</h2></div>
         <div class="row">
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">
@@ -343,6 +330,23 @@
                     <input placeholder="Dirección Exacta Lider" class="form-control" type="address" name="address" required="required" />
                 </div>
             </div>
+
+
+            <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>
+
+           <!-- Finaliza Formulario-->
+
+    <!-- Formulario Sección Integrantes-->
+
+<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
+<link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+<!--Los nombre de los campos no llevan corchete ni llaves -->
+
+<div id="app" class="row" >
+    <form class="formoid-solid-red" action="{{route('createMiPyme')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
+        
 
             <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>                <!-- Finaliza Formulario-->
 
