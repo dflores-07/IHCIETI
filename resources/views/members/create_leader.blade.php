@@ -42,11 +42,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Segundo Nombre
+                    Primer Apellido
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
-                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" name="sname" required="required"/>
+                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" name="flname" required="required"/>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4">
@@ -55,7 +55,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-                    <input placeholder="Segundo Apellido Lider" type="text" class="form-control" size="14" name="lname" required="required"/>
+                    <input placeholder="Segundo Apellido Lider" type="text" class="form-control" size="14" name="slname" required="required"/>
                 </div>
             </div>
 
