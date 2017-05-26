@@ -19,12 +19,10 @@ class CreateMembersTable extends Migration
             $table->string('fname');
             $table->string('flname');
             $table->string('slname');
-            $table->string('birthdate');
             $table->string('province');
             $table->string('city');
             $table->string('school');
             $table->string('birthdate');
-            $table->string('age');
             $table->string('phone');
             $table->string('cellphone');
             $table->string('address');

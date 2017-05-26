@@ -66,7 +66,7 @@ class mipymeController extends Controller
         echo json_encode($member);
         die;
 //aqui lo datos del otro participante
-        $member s= new Member();
+        $member = new Member();
 
         $member->type = $datos['type']; // 'aqui va el dato que guardaras ejemplo'
         $member->lidnumber = $datos['identification_card'];
