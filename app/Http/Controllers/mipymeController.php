@@ -48,7 +48,7 @@ class mipymeController extends Controller
         $member = new Member();
 
         $member->type = $datos['type'];
-        $member->lidnumber = $datos['lidnumber'];
+        $member->lidnumber = $datos['identification_card'];
         $member->fname = $datos['fname'];
         $member->sname = $datos['sname'];
         $member->birthdate = $datos['birthdate'];
@@ -69,7 +69,7 @@ class mipymeController extends Controller
         $member = new Member();
 
         $member->type = $datos['type']; // 'aqui va el dato que guardaras ejemplo'
-        $member->lidnumber = $datos['lidnumber'];
+        $member->lidnumber = $datos['identification_card'];
         $member->fname = $datos['fname'];
         $member->sname = $datos['sname'];
         $member->birthdate = $datos['birthdate'];
