@@ -23,7 +23,5 @@ class Member extends Model
 
 
     
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+   
 }
