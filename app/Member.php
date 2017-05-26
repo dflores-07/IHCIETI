@@ -14,12 +14,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $fillable = ['type', 'idnumber', ['members','leader']
-        'fname', 'flname', 'slname'
-        'birthdate','genre',
-        'province', 'city', 'school',
-        'email', 'phone', 'cellphone',
-        'address', 'project_id', 'user_id', 'id', 'leader'];
+    protected $fillable = [
+        'type',
+        'idnumber',
+        'fname',
+        'flname',
+        'slname',
+        'birthdate',
+        'genre',
+        'province',
+        'city',
+        'school',
+        'email',
+        'phone',
+        'cellphone',
+        'address',
+        'project_id',
+        'user_id'
+    ];
 
 
    
