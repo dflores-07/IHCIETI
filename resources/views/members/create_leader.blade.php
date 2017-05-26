@@ -26,7 +26,7 @@
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" min="0" max="18" name="lidnumber" required="required" placeholder="Número de Identidad Lider" value=""/>
+                    <input class="form-control" type="text" min="0" max="18" name="idnumber" required="required" placeholder="Número de Identidad Lider" value=""/>
                     <input class="form-control" type="hidden"  name="project_id"  value="{{$project->id}}"/>
                     <input class="form-control" type="hidden"  name="acount"  value="{{$acount}}"/>
                 </div>
