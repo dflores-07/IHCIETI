@@ -40,15 +40,15 @@ class mipymeController extends Controller
 
     public function store()
     {
-        $datos = Input::all('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
+        $datos = Input::all();
 
      //aqui va los datos del lider
-        $member = new Member();
+        $member = new Member('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
 
         $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
-        $member->save();
+        $member->save('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
 //aqui lo datos del otro participante
-        $member = new Member('type', 'lidnumber', 'fname', 'sname', 'birthdate','genre', 'province', 'city', 'school', 'Email', 'phone', 'cellphone', 'address');
+        $member = new Member();
 
         $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
         $member->save();
