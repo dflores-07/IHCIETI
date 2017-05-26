@@ -19,7 +19,7 @@ class Member extends Model
         'birthdate','genre',
         'province', 'city', 'school',
         'email', 'phone', 'cellphone',
-        'address'];
+        'address', 'project_id', 'user_id', 'id'];
 
 
    
