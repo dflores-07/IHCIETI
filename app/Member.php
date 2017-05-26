@@ -14,13 +14,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Member extends Model
 {
-    protected $fillable = ['type', 'lidnumber',
-        'fname', 'sname',
+    protected $fillable = ['type', 'idnumber',
+        'fname', 'flname', 'slname'
         'birthdate','genre',
         'province', 'city', 'school',
-        'Email', 'phone', 'cellphone',
+        'email', 'phone', 'cellphone',
         'address'];
 
+
+   
 
     
    

@@ -16,6 +16,7 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('type',['members','leader']);
+            
             $table->string('fname');
             $table->string('flname');
             $table->string('slname');
@@ -24,9 +25,11 @@ class CreateMembersTable extends Migration
             $table->string('school');
             $table->string('birthdate');
             $table->string('phone');
+            $table->string('email');
             $table->string('cellphone');
             $table->string('address');
             $table->string('genre');
+
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();
