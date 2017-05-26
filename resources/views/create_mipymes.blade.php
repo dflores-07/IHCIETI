@@ -344,11 +344,7 @@
 
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
-<div id="app" class="row" >
-    <form class="formoid-solid-red" action="{{route('createMiPyme')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
-        
-
-            <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>                <!-- Finaliza Formulario-->
+                <!-- Finaliza Formulario-->
 
             </div>
             <script src="{{mix("js/app.js")}}"></script>
