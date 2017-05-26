@@ -45,39 +45,38 @@ class mipymeController extends Controller
      //aqui va los datos del lider
         $member = new Member();
 
-        $member->type = $member['type'];
-        $member->lidnumber = $member['lidnumber'];
-        $member->fname = $member['fname'];
-        $member->sname = $member['sname'];
-        $member->birthdate = $member['birthdate'];
-        $member->genre = $member['genre'];
-        $member->province = $member['province'];
-        $member->city = $member['city'];
-        $member->school = $member['school'];
-        $member->Email = $member['Email'];
-        $member->phone = $member['phone'];
-        $member->cellphone = $member['cellphone'];
-        $member->address = $member['address'];
+        $member->type = $datos['type'];
+        $member->lidnumber = $datos['lidnumber'];
+        $member->fname = $datos['fname'];
+        $member->sname = $datos['sname'];
+        $member->birthdate = $datos['birthdate'];
+        $member->genre = $datos['genre'];
+        $member->province = $datos['province'];
+        $member->city = $datos['city'];
+        $member->school = $datos['school'];
+        $member->Email = $datos['Email'];
+        $member->phone = $datos['phone'];
+        $member->cellphone = $datos['cellphone'];
+        $member->address = $datos['address'];
 
          // 'aqui va el dato que guardaras ejemplo'
         $member->save();
 //aqui lo datos del otro participante
         $member = new Member();
 
-        $member->type = $member['type']; // 'aqui va el dato que guardaras ejemplo'
-        $member->type = $member['type'];
-        $member->lidnumber = $member['lidnumber'];
-        $member->fname = $member['fname'];
-        $member->sname = $member['sname'];
-        $member->birthdate = $member['birthdate'];
-        $member->genre = $member['genre'];
-        $member->province = $member['province'];
-        $member->city = $member['city'];
-        $member->school = $member['school'];
-        $member->Email = $member['Email'];
-        $member->phone = $member['phone'];
-        $member->cellphone = $member['cellphone'];
-        $member->address = $member['address'];
+        $member->type = $datos['type']; // 'aqui va el dato que guardaras ejemplo'
+        $member->lidnumber = $datos['lidnumber'];
+        $member->fname = $datos['fname'];
+        $member->sname = $datos['sname'];
+        $member->birthdate = $datos['birthdate'];
+        $member->genre = $datos['genre'];
+        $member->province = $datos['province'];
+        $member->city = $datos['city'];
+        $member->school = $datos['school'];
+        $member->Email = $datos['Email'];
+        $member->phone = $datos['phone'];
+        $member->cellphone = $datos['cellphone'];
+        $member->address = $datos['address'];
         $member->save();
     }
 
