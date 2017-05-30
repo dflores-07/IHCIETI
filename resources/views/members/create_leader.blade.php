@@ -10,9 +10,6 @@
 
 
 <!-- Formulario Sección Lider-->
-<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
-<link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
