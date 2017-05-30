@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.system')
 <head>
     <meta charset="utf-8" />
     <title>Honduras Startup - Emprendimiento Tradicional</title>
@@ -20,6 +19,16 @@
     <form class="formoid-solid-red" action="{{route('saveProject')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
         <div class="title"><h2>Honduras Startup - Mi Proyecto</h2></div>
         <div class="row">{{csrf_field()}}
+            <div class="col-sm-12 col-md-12" title="Número de Identidad Lider">
+                <label class="title">
+                    Codigo del Proyecto
+                </label>
+                <div class="input-group ">
+                    <span class="input-group-addon"><i class="fa fa-bell"></i></span>
+                    <input class="form-control" type="text" readonly  name="code" value="{{$code}}" required="required" placeholder="Codigo del Proyecto" />
+                    <input class="form-control" type="hidden"   name="token" value="{{$token}}"  />
+                </div>
+            </div>
             <div class="col-sm-6 col-md-6" title="Número de Identidad Lider">
                 <label class="title">
                     Nombre del Proyecto
@@ -116,7 +125,7 @@
             </div>
             <div style="margin: 5px" class="text-center row col-sm-12 col-md-12">
                 <div class="text-center ">
-                    <input  class="btn btn-success" type="submit"  value="Siguiente Paso" />
+                    <input  style="max-height:  50px; max-width: 260px "  class="btn btn-success" type="submit"  value="Siguiente Paso" />
                 </div>
             </div>
         </div>
@@ -125,18 +134,11 @@
 </div>
            <!-- Finaliza Formulario-->
 
-    <!-- Formulario Sección Integrantes-->
-
-<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
-<link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
                 <!-- Finaliza Formulario-->
 
             </div>
-            <script src="{{mix("js/app.js")}}"></script>
-            <script src="https://use.fontawesome.com/a9aa1689da.js"></script>
 </body>
 </html>

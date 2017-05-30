@@ -75,6 +75,9 @@ class Member extends Model
     }
    
 
-    
+    public function nameComplete()
+    {
+        return $this->fname.' '. $this->flname.' '. $this->slname;
+    }
    
 }
