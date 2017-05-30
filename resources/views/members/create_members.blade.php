@@ -240,7 +240,7 @@
 
             <div style="margin: 5px" class="text-center row col-sm-12 col-md-12">
                 <div class="text-center ">
-                    <input  class="btn btn-success" type="submit"  value="Siguiente Paso" />
+                    <input style="max-height:  50px; max-width: 260px "  class="btn btn-success" type="submit"  value="Siguiente Paso" />
                 </div>
             </div>
         </div>
