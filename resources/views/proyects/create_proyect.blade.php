@@ -96,20 +96,6 @@
             </div>
 
 
-            <div class="col-sm-6 col-md-6">
-                <div class="element-select" title="Total Integrantes">
-                    <label class="title"><span class="required">Total de Integrantes</span></label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
-                        <select name="acount" required="required">
-                            <option value="">Uno</option>
-                            <option value="1">Dos</option>
-                            <option value="2">Tres</option>
-                            <option value="3">Cuatro</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
             <div class="col-sm-12 col-md-12">
                 <div class="element-select" title="Observaciones">
                     <label class="title"><span class="required">Observaciones</span></label>

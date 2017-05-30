@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Member;
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
 
 class mipymeController extends Controller
@@ -33,57 +34,44 @@ class mipymeController extends Controller
         return redirect('/cerrar-sesion');
     }
 
-     public function createLeader($id,$acount)
+     public function createLeader()
     {
-        $project = Project::find($id);
-        return view('members.create_leader',compact('project','acount'));
+        return view('members.create_leader');
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
         $datos = Input::all();
-
-     //aqui va los datos del lider
+        //aqui va los datos del lider
         $member = new Member();
         //Comprobamos que venimos del formulario de miembros
-        if(key_exists('members',$datos)):
-                $member->type = 'members';
-        // aqui vamos rebajando la cantidad de miembros para saber si debe repetir la vista de miembros
-            $datos['acount'] = $datos['acount'] -1;
-        else:
-                $member->type = 'leader';
+        if(!key_exists('token',$datos)):
+            $datos['token']   = Crypt::encryptString($datos['idnumber']);
         endif;
-        $member->project_id = $datos['project_id'];
-        $member->idnumber = $datos['idnumber'];
-        $member->fname = $datos['fname'];
-        $member->flname = $datos['flname'];
-        $member->slname = $datos['slname'];
-        $member->birthdate = $datos['birthdate'];
-        $member->genre = $datos['genre'];
-        $member->province = $datos['province'];
-        $member->city = $datos['city'];
-        $member->school = $datos['school'];
-        $member->Email = $datos['Email'];
-        $member->phone = $datos['phone'];
-        $member->cellphone = $datos['cellphone'];
-        $member->address = $datos['address'];
+        $datos['type']='leader';
+        if($member->isValid($datos)):
+            $member->fill($datos);
+            $member->save();
 
-         // 'aqui va el dato que guardaras ejemplo'
-        $member->save();
-
-        if($datos['acount']=='' || $datos['acount']<=0):
-            return redirect()->route('fin',$member->project_id);
-        else:
-            // regresamos a la vista de nuevo miembros si se debe agregar mas
-            return redirect()->route('createMembers',[$member->project_id,$datos['acount']]);
+            if($datos['acount']>0):
+                // regresamos a la vista de nuevo miembros si se debe agregar mas
+                $datos['acount']=$datos['acount'] -1;
+                if($datos['acount'] <= 0):
+                $datos['acount'] = 0;
+                endif;
+                return redirect()->route('createMembers',[$member->token,$datos['acount']]);
+            else:
+                return redirect()->route('createProject',$member->token);
+            endif;
         endif;
+        return redirect()->to($this->getRedirectUrl())->withInput($request->all())
+            ->withErrors($member->errors, $this->errorBag());
     }
 
-    public function createMembers($id,$acount)
+    public function createMembers($token,$acount)
     {
-        $project = Project::find($id);
-        return view('members.create_members', compact('project', 'acount'));
+        return view('members.create_members', compact( 'acount','token'));
     }
 
         public function fin($id)

@@ -32,6 +32,6 @@ class ProjectController extends Controller
         // guardamos todos los datos
         $project->save();
 
-        return redirect()->route('createLeader', [$project->id,$datos['acount']]);
+        return redirect()->route('fin', $project->id);
     }
 }
