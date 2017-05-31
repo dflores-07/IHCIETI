@@ -367,7 +367,7 @@
 
          var loadingUI = function (message, img){
              if(img){
-                 var msg = '<h2><img style="margin-right: 30px" src="' + server + 'http://mipymes.hondurastartup.com/mipymes/public/images/spiffygif.gif" >' + message + '</h2>';
+                 var msg = '<h2><img style="margin-right: 30px" src="http://mipymes.hondurastartup.com/mipymes/public/images/spiffygif.gif" >' + message + '</h2>';
              }else{
                  var msg = '<h2>' + message + '</h2>';
              }
