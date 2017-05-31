@@ -100,11 +100,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Nombre
+                    Nombre Lider
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input placeholder="Primer Nombre Lider" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
+                    <input placeholder="Nombres del Lider" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
                     @if ($errors->has('fname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('fname') }}</strong>
@@ -114,11 +114,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Apellido
+                    Primer Apellido Lider
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
-                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
+                    <input placeholder="Primer Apellido Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
                     @if ($errors->has('flname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('flname') }}</strong>
@@ -128,7 +128,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Segundo Apellido
+                    Segundo Apellido Lider
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
@@ -146,7 +146,7 @@
                 <label class="title">Fecha de Nacimiento</label>
                 <div class="form-group">
                     <div class='input-group date' id='birthdate'>
-                        <input type='text' class="form-control" name="birthdate" />
+                        <input type='text' placeholder="Fecha de Nacimiento" class="form-control" name="birthdate" />
                         <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -199,7 +199,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <div class="element-select" title="Municipios">
-                    <label class="title"><span class="required">Municipios</span></label>
+                    <label class="title"><span class="required">Municipio</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                         <select name="city"  id="city" class="form-control" >
@@ -220,6 +220,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
                         <select name="school"  class="form-control" >
+                             <option value="Primaria" @if (old('school') == 'Primaria') selected="selected" @endif>Primaria</option>
                             <option value="Secundaria" @if (old('school') == 'Secundaria') selected="selected" @endif>Secundaria</option>
                             <option value="Universitaria" @if (old('school') == 'Universitaria') selected="selected" @endif>Universitaria</option>
                             <option value="Postgrado" @if (old('school') == 'Postgrado') selected="selected" @endif>Postgrado</option>
@@ -315,7 +316,7 @@
                 </div>
             </div>
         </div>
-     <p class="text-center">Hondurastartup MiPyme</p>
+     <p class="text-center">Hondurastartup | Emprendimiento Tradicional 2017</p>
     </form>
 </div>
 

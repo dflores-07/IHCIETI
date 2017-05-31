@@ -1,7 +1,7 @@
 @extends('layouts.system')
 <head>
     <meta charset="utf-8" />
-    <title>Honduras Startup - Emprendimiento Tradicional</title>   <style type="text/css">
+    <title>Honduras Startup | Emprendimiento Tradicional</title>   <style type="text/css">
 
 
         body {
@@ -100,11 +100,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Nombre
+                    Nombres de Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input placeholder="Primer Nombre Lider" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
+                    <input placeholder="Nombres de Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
                     @if ($errors->has('fname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('fname') }}</strong>
@@ -114,11 +114,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Apellido
+                    Primer Apellido Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
-                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
+                    <input placeholder="Primer Apellido Miembro" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
                     @if ($errors->has('flname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('flname') }}</strong>
@@ -128,11 +128,11 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Segundo Apellido
+                    Segundo Apellido Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-                    <input placeholder="Segundo Apellido Lider" type="text" class="form-control" size="14" value="{{old('slname')}}" name="slname" />
+                    <input placeholder="Segundo Apellido Miembro" type="text" class="form-control" size="14" value="{{old('slname')}}" name="slname" />
                     @if ($errors->has('slname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('slname') }}</strong>
@@ -198,7 +198,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <div class="element-select" title="Municipios">
-                    <label class="title"><span class="required">Municipios</span></label>
+                    <label class="title"><span class="required">Municipio</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                         <select name="city"  id="city" class="form-control" >
@@ -235,10 +235,10 @@
             </div>
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Correo Electrónico</label>
+                <label class="title">Correo Electrónico Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" value="{{old('email')}}" name="email" />
+                    <input placeholder="Correo Electrónico Miembro" class="form-control" type="email" value="{{old('email')}}" name="email" />
                     @if ($errors->has('email'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -249,10 +249,10 @@
 
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Teléfono Fijo</label>
+                <label class="title">Teléfono Fijo Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input placeholder="Teléfono Fijo Lider" class="form-control" type="teléfono"  value="{{old('phone')}}" name="phone" />
+                    <input placeholder="Teléfono Fijo Miembro" class="form-control" type="teléfono"  value="{{old('phone')}}" name="phone" />
                     @if ($errors->has('phone'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('phone') }}</strong>
@@ -263,10 +263,10 @@
 
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Teléfono Celular</label>
+                <label class="title">Teléfono Celular Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-                    <input placeholder="Teléfono Celular Lider" class="form-control" type="Celular" value="{{old('cellphone')}}" name="cellphone"  />
+                    <input placeholder="Teléfono Celular Miembro" class="form-control" type="Celular" value="{{old('cellphone')}}" name="cellphone"  />
                     @if ($errors->has('cellphone'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('cellphone') }}</strong>
@@ -280,7 +280,7 @@
                 <label class="title">Dirección Exacta</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input placeholder="Dirección Exacta Lider" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
+                    <input placeholder="Dirección Exacta" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
                     @if ($errors->has('address'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('address') }}</strong>
@@ -296,7 +296,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-center"> Hondurastartup MiPyme </p>
+        <p class="text-center"> Hondurastartup | Emprendimiento Tradicional </p>
     </form>
 </div>
 
