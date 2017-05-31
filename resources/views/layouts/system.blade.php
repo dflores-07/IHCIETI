@@ -13,9 +13,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{mix('/css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/bootstrap-datepicker.min.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/styleheader.css')}}">
+    <link rel="stylesheet" href="{{mix('/mipymes/public/css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('/mipymes/public/css/bootstrap-datepicker.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/mipymes/public/css/styleheader.css')}}">
 </head>
 <body>
 <div id="app">
@@ -28,8 +28,8 @@
 </div>
 
 <!-- Scripts -->
-<script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ mix('mipymes/public/js/app.js') }}"></script>
+<script src="{{ asset('mipymes/public/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="http://malsup.github.io/jquery.blockUI.js"></script>
 </body>
 </html>
