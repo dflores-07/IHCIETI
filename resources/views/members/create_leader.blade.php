@@ -428,7 +428,7 @@
 
          $("#province").change(function () {
            //  var departament = $("#province").val();
-             url = 'http://mipymes.hondurastartup.com/mipymes/public/municipios' ;
+             url = 'mipymes/public/municipios' ;
              data.departament = $('#province').val();
 
              ajaxForm(url,'post',data)
