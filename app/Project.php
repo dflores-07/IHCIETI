@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     //
-    protected $fillable =['name','description','sector','budget','budgetfile','code',
-        'has_received_help','who_has_received_help','whohelp','helpcount','observation'];
+    protected $fillable =['code','name','budget','description','budgetfile','sector',
+        'has_received_help','who_helpOther','who_has_received_help','helpcount','whohelp','type_project'];
 
     public function members()
     {

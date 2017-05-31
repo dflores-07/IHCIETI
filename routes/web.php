@@ -24,6 +24,7 @@ Route::get('/create-project/{id}', ['as'=>'createProject','uses'=>'ProjectContro
 Route::post('/create-project', ['as'=>'saveProject','uses'=>'ProjectController@store']);
 
 Route::get('/create-leader', ['as'=>'createLeader','uses'=>'mipymeController@createLeader']);
+Route::post('/municipios', ['as'=>'muni','uses'=>'mipymeController@muni']);
 Route::get('/create-members/{acount}/{token}', ['as'=>'createMembers','uses'=>'mipymeController@createMembers']);
 Route::post('/create-leader', ['as'=>'saveLeader','uses'=>'mipymeController@store']);
 

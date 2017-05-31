@@ -28,7 +28,7 @@ class CreateMembersTable extends Migration
             $table->string('email');
             $table->string('cellphone');
             $table->string('address');
-            $table->string('genre');
+            $table->string('gender');
 
             $table->integer('project_id')->unsigned()->nullabel();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');

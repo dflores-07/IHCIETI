@@ -22,9 +22,10 @@ class CreateProjectsTable extends Migration
             $table->string('budgetfile');
             $table->string('has_received_help');
             $table->string('who_has_received_help');
+            $table->string('who_helpOther');
             $table->string('whohelp');
             $table->decimal('helpcount',20,2);
-            $table->string('observation');
+            $table->string('type_project');
             $table->engine='InnoDB';
             $table->timestamps();
             //relations

@@ -3,7 +3,74 @@
 <head>
     <meta charset="utf-8" />
     <title>Honduras Startup - Emprendimiento Tradicional</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style type="text/css">
+
+
+        body {
+            font-size: 16px;
+            background: #fff;
+            font-family: "Roboto";
+        }
+
+
+
+        .formulario h2 {
+            font-size: 16px;
+            color: #001F3F;
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+
+        .formulario > div {
+            padding: 20px 0;
+        }
+
+        .formulario .radio label,
+        .formulario .checkbox label {
+            display: inline-block;
+            cursor: pointer;
+            color: #FF4136;
+            position: relative;
+            padding: 5px 15px 5px 51px;
+            font-size: 1em;
+            border-radius: 5px;
+            -webkit-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease; }
+        .formulario .radio label:hover,
+        .formulario .checkbox label:hover {
+            background: rgba(255, 65, 54, 0.1); }
+        .formulario .radio label:before,
+        .formulario .checkbox label:before {
+            content: "";
+            display: inline-block;
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            left: 15px;
+            border-radius: 50%;
+            background: none;
+            border: 3px solid #FF4136; }
+        .formulario input[type="radio"] {
+            display: none; }
+        .formulario input[type="radio"]:checked + label:before {
+            display: none; }
+        .formulario input[type="radio"]:checked + label {
+            padding: 5px 15px;
+            background: #FF4136;
+            border-radius: 2px;
+            color: #fff; }
+        .formulario .checkbox label:before {
+            border-radius: 3px; }
+        .formulario .checkbox input[type="checkbox"] {
+            display: none; }
+        .formulario .checkbox input[type="checkbox"]:checked + label:before {
+            display: none; }
+        .formulario .checkbox input[type="checkbox"]:checked + label {
+            background: #FF4136;
+            color: #fff;
+            padding: 5px 15px; }
+    </style>
 </head>
 <body class="blurBg-false" style="background-color:#EBEBEB">
 
@@ -13,7 +80,7 @@
 
 <!--Los nombre de los campos no llevan corchete ni llaves -->
 
-<div id="app" class="row" >
+<div id="app" class="row wrap" >
     <form class="formoid-solid-red" action="{{route('saveLeader')}}" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:980px;min-width:150px" method="post">
         <div class="title"><h2>Honduras Startup - Lider del Proyecto</h2></div>
         <div class="row">{{csrf_field()}}
@@ -23,7 +90,7 @@
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" min="0" max="18" name="idnumber"  placeholder="Número de Identidad Lider" value="{{old('idnumber')}}"/>
+                    <input class="form-control" type="text" id="idnumber" min="0" max="18" name="idnumber"  placeholder="Número de Identidad Lider" value="{{old('idnumber')}}"/>
                     @if ($errors->has('idnumber'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('idnumber') }}</strong>
@@ -77,29 +144,31 @@
 
             <div class="col-sm-4 col-md-4">
                 <label class="title">Fecha de Nacimiento</label>
-                <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-calendar"></i></span>
-                    <input placeholder="Fecha de Nacimiento" type="date" class="form-control" size="14" value="{{old('birthdate')}}" name="birthdate" />
+                <div class="form-group">
+                    <div class='input-group date' id='birthdate'>
+                        <input type='text' class="form-control" name="birthdate" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
                     @if ($errors->has('birthdate'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('birthdate') }}</strong>
                         </span>
                     @endif
                 </div>
+
             </div>
 
-            <div class="col-sm-4 col-md-4">
-                <label class="element-radio" title="Género">Género</label>
-                <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-venus-mars"></i></span>
-                    <div class="column column2">
-                        <label><input type="radio" name="genre" value="Masculino" @if (old('genre') == 'Masculino') checked @endif /><span>Masculino</span></label></div>
-                    <span class="clearfix"></span>
-                    <div class="column column2">
-                        <label><input type="radio" name="genre" value="Femenino"  @if (old('genre') == 'Femenino') checked @endif /><span>Femenino</span></label></div>
-                    @if ($errors->has('genre'))
+            <div class="col-sm-4 col-md-4 formulario">
+                <div class="radio">
+                    <input type="radio" name="gender"  id="hombre"  @if (old('gender') == 'Masculino') checked @endif />
+                    <label for="hombre">Hombre</label>
+                    <input type="radio" id="mujer" name="gender"   @if (old('gender') == 'Femenino') checked @endif />
+                    <label for="mujer">Mujer</label>
+                    @if ($errors->has('gender'))
                         <span class="help-block  alert-danger">
-                            <strong>{{ $errors->first('genre') }}</strong>
+                            <strong>{{ $errors->first('gender') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -107,30 +176,18 @@
 
             <div class="col-sm-4 col-md-4">
                 <div class="element-select" title="Departamento">
-                    <label class="title"><span class="required">Departamento</span></label>
+                    <label class="title" for="province"><span class="required">Departamento</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"> <i class="fa fa-globe"></i></span>
 
                         <span>
-                            <select name="province" >
-                                <option value="Islas de la Bahía"  @if (old('province') == 'Islas de la Bahía') selected="selected" @endif >Islas de la Bahía </option>
-                                <option value="Cortés"   @if (old('province') == 'Cortés') selected="selected" @endif >Cortés </option>
-                                <option value="Atlántida"  @if (old('province') == 'Atlántida') selected="selected" @endif >Atlántida </option>
-                                <option value="Colón"  @if (old('province') == 'Colón') selected="selected" @endif >Colón </option>
-                                <option value="Gracias a Dios"  @if (old('province') == 'Gracias a Dios') selected="selected" @endif >Gracias a Dios </option>
-                                <option value="Copán"  @if (old('province') == 'Copán') selected="selected" @endif >Copán </option>
-                                <option value="Santa Bárbara"  @if (old('province') == 'Santa Bárbara') selected="selected" @endif >Santa Bárbara </option>
-                                <option value="Yoro"  @if (old('province') == 'Yoro') selected="selected" @endif >Yoro </option>
-                                <option value="Olancho"  @if (old('province') == 'Olancho') selected="selected" @endif >Olancho </option>
-                                <option value="Ocotepeque"  @if (old('province') == 'Ocotepeque') selected="selected" @endif >Ocotepeque </option>
-                                <option value="Lempira"  @if (old('province') == 'Lempira') selected="selected" @endif >Lempira </option>
-                                <option value="Intibucá"  @if (old('province') == 'Intibucá') selected="selected" @endif >Intibucá </option>
-                                <option value="Comayagua"  @if (old('province') == 'Comayagua') selected="selected" @endif >Comayagua </option>
-                                <option value="Francisco Morazán"  @if (old('province') == 'Francisco Morazán') selected="selected" @endif >Francisco Morazán </option>
-                                <option value="El Paraíso"  @if (old('province') == 'El Paraíso') selected="selected" @endif >El Paraíso </option>
-                                <option value="La Paz"  @if (old('province') == 'La Paz') selected="selected" @endif >La Paz </option>
-                                <option value="Valle Choluteca"  @if (old('province') == 'Valle Choluteca') selected="selected" @endif >Valle Choluteca</option>
-                            </select>
+                            <select id="province" name="province"  class="form-control">
+                                <option value=""   >Seleccione Un Departamento</option>
+
+                            @foreach($departaments AS $departament)
+                                <option value="{{$departament->id}}"  @if (old('province') == $departament->id) selected="selected" @endif >{{$departament->name}}</option>
+                                @endforeach
+                              </select>
                         </span>
                         @if ($errors->has('province'))
                             <span class="help-block  alert-danger">
@@ -145,10 +202,7 @@
                     <label class="title"><span class="required">Municipios</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                        <select name="city" >
-                            <option value="option 1">option 1</option>
-                            <option value="option 2">option 2</option>
-                            <option value="option 3">option 3</option>
+                        <select name="city"  id="city" class="form-control" >
                         </select>
                         </span>
                         @if ($errors->has('city'))
@@ -165,7 +219,7 @@
                     <label class="title">Grado de Escolaridad</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                        <select name="school"  >
+                        <select name="school"  class="form-control" >
                             <option value="Secundaria" @if (old('school') == 'Secundaria') selected="selected" @endif>Secundaria</option>
                             <option value="Universitaria" @if (old('school') == 'Universitaria') selected="selected" @endif>Universitaria</option>
                             <option value="Postgrado" @if (old('school') == 'Postgrado') selected="selected" @endif>Postgrado</option>
@@ -241,7 +295,7 @@
                     <label class="title"><span class="required">Total de Integrantes</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
-                        <select name="acount" >
+                        <select name="acount"  class="form-control" >
                             <option value="">Uno</option>
                             <option value="1">Dos</option>
                             <option value="2">Tres</option>
@@ -261,20 +315,10 @@
                 </div>
             </div>
         </div>
-     <p class="frmd">Validación Formulario Hondurastartup MiPyme Form</p>
+     <p class="text-center">Hondurastartup MiPyme</p>
     </form>
 </div>
-           <!-- Finaliza Formulario-->
 
-    <!-- Formulario Sección Integrantes-->
-
-<link rel="stylesheet" href="{{mix("css/app.css")}}" type="text/css" />
-<link rel="stylesheet" href="/css/styleheader.css" type="text/css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-<!--Los nombre de los campos no llevan corchete ni llaves -->
-
-                <!-- Finaliza Formulario-->
 
             </div>
             <script src="{{mix("js/app.js")}}"></script>
@@ -283,15 +327,130 @@
 
 
      $(document).ready(function() {
-            $.ajax({
-                type: "POST",
-                url: "getPaises.php",
-                success: function(response)
-                {
-                    $('.selector-pais select').html(response).fadeIn();
-                }
-            });
+         var server = "/";
 
+         var ajaxForm = function (url, type, data, msg, school){
+             var message;
+             var path = server + url;
+             if(msg){
+                 message = msg
+             }else{
+                 if(type == 'post'){
+                     message = 'Registrando Datos';
+                 }else{
+                     message = 'Actualizando Registros';
+                 }
+             }
+             if(school){
+                 path = server + window.location.pathname.split('/')[1] + '/' + window.location.pathname.split('/')[2] + ('/') +url;
+             }
+             return $.ajax({
+                 url: path,
+                 type: type,
+                 data: {data: JSON.stringify(data)},
+                 datatype: 'json',
+                 beforeSend: function(){
+                     loadingUI(message, 'img');
+                 },
+                 error:function(xhr, status, error){
+                     $.unblockUI();
+                     if(xhr.status == 401){
+                         bootbox.alert("<p class='red'>No estas registrado en la aplicación.</p>", function(response){
+                             location.reload();
+                         });
+                     }else{
+                         bootbox.alert("<p class='red'>No se pueden grabar los datos.</p>");
+                     }
+                 }
+             });
+         };
+
+         var loadingUI = function (message, img){
+             if(img){
+                 var msg = '<h2><img style="margin-right: 30px" src="' + server + 'images/spiffygif.gif" >' + message + '</h2>';
+             }else{
+                 var msg = '<h2>' + message + '</h2>';
+             }
+             $.blockUI({ css: {
+                 border: 'none',
+                 padding: '15px',
+                 backgroundColor: '#000',
+                 '-webkit-border-radius': '10px',
+                 '-moz-border-radius': '10px',
+                 opacity: 0.5,
+                 color: '#fff'
+             }, message: msg});
+         };
+         var box;
+         var messageAjax = function(data, no_bootbox) {
+             //console.log(data.errors);
+             $.unblockUI();
+             if(data.success){
+                 if(data.message.redirect)
+                 {
+                     window.location.href = data.message.href;
+                 }else{
+                     if(! no_bootbox )
+                     {
+                         bootbox.alert('<p class="success-ajax">'+data.message+'</p>', function(){
+                             location.reload();
+                         });
+                     }
+                 }
+             }
+             else{
+                 messageErrorAjax(data);
+             }
+         };
+         var messageErrorAjax = function(data){
+             $.unblockUI();
+             var errors = data.errors;
+             var error  = "";
+             if($.type(errors) === 'string'){
+                 error = data.errors;
+             }else{
+                 for (var element in errors){
+                     if(errors.hasOwnProperty(element)){
+                         error += errors[element] + '<br>';
+                     }
+                 }
+             }
+             bootbox.alert('<p class="error-ajax">'+error+'</p>');
+         };
+         $(function(){
+             //setup Ajax
+             $.ajaxSetup({
+                 headers: {
+                     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                 }
+             });
+             var data = {};
+
+         $("#province").change(function () {
+           //  var departament = $("#province").val();
+             url = 'municipios' ;
+             data.departament = $('#province').val();
+
+             ajaxForm(url,'post',data)
+                 .done( function (data) {
+                     $.unblockUI();
+                     $('#select2-city-container').text("");
+                     $('#city').empty();
+
+                     $.each(data, function(index, name) {
+                         $('#city').append("<option value="+ index +">" + name + "</option>");
+                     });
+
+                     $("#city option:first").attr('selected','selected');
+                     $('#select2-city-container').text($("#city option:first").val());
+                 });
+         });
+             $('#birthdate').datepicker({
+                 endDate: '31-05-1999'
+             });
+
+
+        });
         });
 
 </script>

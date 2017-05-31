@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Departament;
 use App\Member;
+use App\Municipality;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class mipymeController extends Controller
@@ -36,10 +39,17 @@ class mipymeController extends Controller
 
      public function createLeader()
     {
-        return view('members.create_leader');
+        $departaments = Departament::all();
+        return view('members.create_leader',compact('departaments'));
     }
 
+    public function muni()
+    {
+        $departament = $this->convertionObjeto();
+        return DB::table('municipalities')
+            ->where('departament_id',$departament->departament)->pluck('name','id');
 
+    }
     public function store(Request $request)
     {
         $datos = Input::all();
@@ -71,7 +81,8 @@ class mipymeController extends Controller
 
     public function createMembers($token,$acount)
     {
-        return view('members.create_members', compact( 'acount','token'));
+        $departaments = Departament::all();
+        return view('members.create_members', compact( 'acount','token','departaments'));
     }
 
         public function fin($id)
