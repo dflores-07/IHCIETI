@@ -321,7 +321,7 @@
 
 
             </div>
-            <script src="{{mix("mipymes/public/js/app.js")}}"></script>
+            <script src="http://mipymes.hondurastartup.com/mipymes/public/js/app.js"></script>
             <script src="https://use.fontawesome.com/a9aa1689da.js"></script>
 <script type="text/javascript">
 
