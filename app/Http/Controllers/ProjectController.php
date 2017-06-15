@@ -285,6 +285,63 @@ class ProjectController extends Controller
         })->export('xls');
     }
 
+    /*******************************************************
+     * @Author     : Anwar Sarmiento Ramos
+     * @Email      : asarmiento@sistemasamigables.com
+     * @Create     : ${DATE}
+     * @Update     : 0000-00-00
+     ********************************************************
+     * @Description: Todos los miembros sin registro de project
+     *
+     *
+     *
+     * @Pasos      :
+     *
+     *
+     *
+     ********************************************************/
+    public function pdfAllMembersNot()
+    {
+        Fpdf::AddPage();
+        Fpdf::SetFont('Courier', 'B', 18);
+        Fpdf::Cell(0, 7, 'Honduras Startup',0,1,'C');
+        Fpdf::SetFont('Courier', 'B', 14);
+        Fpdf::Cell(0, 7, 'Lista de Personas sin Terminar el Registro',0,1,'C');
+
+
+
+        Fpdf::Ln(14);
+        Fpdf::SetFont('Courier', 'B', 12);
+        Fpdf::Cell(10, 7, '#',1,0,'C');
+        Fpdf::Cell(40, 7, 'Cedula',1,0,'C');
+        Fpdf::Cell(36, 7, 'Nombres',1,0,'C');
+        Fpdf::Cell(27, 7, 'Apellido 1',1,0,'C');
+        Fpdf::Cell(27, 7, 'Apellido 2',1,0,'C');
+        Fpdf::Cell(25, 7, 'Celular',1,0,'C');
+        Fpdf::Cell(25, 7, 'Telefono',1,1,'C');
+        Fpdf::Cell(0, 7, 'Direccion',1,1,'C');
+
+        $members = Member::where('project_id',null)->get();
+        $i=0;
+        foreach ($members As $member):
+            $i++;
+            Fpdf::SetFont('Courier', 'I', 12);
+            Fpdf::Cell(10, 7, $i,1,0,'C');
+            Fpdf::Cell(40, 7, $member->idnumber,1,0,'C');
+            Fpdf::Cell(36, 7,ucwords(utf8_decode(substr($member->fname,0,45))),1,0,'L');
+            Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($member->flname,0,45))),1,0,'L');
+            Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($member->slname,0,45))),1,0,'L');
+            Fpdf::Cell(25, 7, ((($member->cellphone))),1,0,'L');
+            Fpdf::Cell(25, 7, ((($member->phone))),1,1,'L');
+            Fpdf::Cell(0, 7, strtolower(utf8_decode(substr($member->address,0,45))),1,1,'L');
+            // Fpdf::Cell(20, 7, 'L. '.number_format($project->budget,2),1,1,'C');
+            //  Fpdf::Cell(80, 7, ucwords(strtolower(utf8_decode($project->members_leader[0]->fname))),1,1,'L');
+
+        endforeach;
+        Fpdf::Output();
+        exit;
+    }
+
     public function pdfLeaderProject()
     {
         Fpdf::AddPage();

@@ -31,6 +31,7 @@ Route::get('/finish/{id}', ['as'=>'fin','uses'=>'mipymeController@fin']);
 
 //Reportes
 Route::get('/reportes/pdf-lideres-proyectos', ['as'=>'pdfLeaderProject','uses'=>'ProjectController@pdfLeaderProject']);
+Route::get('/reportes/pdf-all-miembros-sin-proyecto', ['as'=>'pdfAllMembers','uses'=>'ProjectController@pdfAllMembersNot']);
 Route::get('/reportes/excel-lideres-proyectos', ['as'=>'pdfLeaderProject','uses'=>'ProjectController@excelLeaderProject']);
 
 //configuracion
