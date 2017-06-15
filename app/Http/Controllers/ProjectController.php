@@ -69,8 +69,22 @@ class ProjectController extends Controller
     }
 
 
-
-    public function pdfLeaderProject()
+    /*******************************************************
+     * @Author     : Anwar Sarmiento Ramos
+     * @Email      : asarmiento@sistemasamigables.com
+     * @Create     : 2017-06-15
+     * @Update     : 0000-00-00
+     ********************************************************
+     * @Description: Este reporte solo mostramos los lideres
+     *  que completaron el formulario en el sistema en un pdf
+     *
+     *
+     * @Pasos      :
+     *
+     *
+     *
+     ********************************************************/
+    public function pdfLeader()
     {
         Fpdf::AddPage();
         Fpdf::SetFont('Courier', 'B', 18);
@@ -114,6 +128,21 @@ class ProjectController extends Controller
         exit;
     }
 
+    /*******************************************************
+     * @Author     : Anwar Sarmiento Ramos
+     * @Email      : asarmiento@sistemasamigables.com
+     * @Create     : 2017-06-15
+     * @Update     : 0000-00-00
+     ********************************************************
+     * @Description: Generamos un reporte en excel para
+     * mostrar todos los miembros junto con sus projectos
+     *
+     *
+     * @Pasos      :
+     *
+     *
+     *
+     ********************************************************/
     public function excelLeaderProject()
     {
         $encabezado = [
@@ -147,70 +176,76 @@ class ProjectController extends Controller
             'Como utilizo la ayuda',
             'Negocio Familiar'
         ];
+$content=[];
+        $contentmaxi=[];
+        $o =0;
 
         $projects = Project::with('members')->get();
         foreach ($projects As $project):
 
 
-$members = Member::where('project_id',$project->id)->get();
-
-            foreach ($members AS $member):
-
-                if($member->type=='leader'):
-                    if($member->gender=='on'):
-                        $gender ='Hombre';
-                        else:
-                            $gender = 'Mujer';
-                            endif;
-            $content=  [
-                $member->idnumber,
-                $member->fname,
-                $member->flname,
-                $member->slname,
-                $member->cellphone,
-                $member->phone,
-                $member->email,
-                $gender,
-                $member->address];
+    $members = Member::where('project_id',$project->id)->get();
+            if($project->has_received_help=='on'):
+                $ayuda ='si';
+            else:
+                $ayuda = 'no';
             endif;
-            if($member->type=='members'):
 
-                    if($member->gender=='on'):
-                        $gender ='Hombre';
-                    else:
-                        $gender = 'Mujer';
-                    endif;
-                    array_push($content, $member->idnumber, $member->fname,$member->flname,
-                        $member->slname, $member->cellphone, $member->phone, $member->email,
-                        $gender, $member->address);
-            endif;
-        endforeach;
-        if($project->has_received_help=='on'):
-
-            $ayuda ='si';
-        else:
-            $ayuda = 'no';
-        endif;
             if($project->type_project=='on'):
 
                 $familia ='si';
             else:
                 $familia = 'no';
             endif;
-        array_push($content,$project->code,
-            $project->name,
-            $project->sector,
-            '',
-            $project->budget,
-            $ayuda,
-            $project->who_help,
-            $project->whohelp,
-            $project->helpcount,
-            '',
-            $familia);
+
+
+
+            foreach ($members AS $member):
+                $o++;
+                if($member->gender=='on'):
+                    $gender ='Hombre';
+                else:
+                    $gender = 'Mujer';
+                endif;
+
+
+                    if($member->type=='leader'):
+                    $leader =[$member->idnumber,
+                        $member->fname,
+                        $member->flname,
+                        $member->slname,
+                        $member->cellphone,
+                        $member->phone,
+                        $member->email,
+                        $gender,
+                        $member->address];
+
+                    endif;
+
+                    if($member->type=='members'):
+                            //agregamos los miembros con sus proyectos
+                        array_push($content,  array_merge_recursive($leader,[ $member->idnumber, $member->fname,$member->flname,
+                                $member->slname, $member->cellphone, $member->phone, $member->email,
+                                $gender, $member->address,$project->code,
+                                $project->name,
+                                $project->sector,
+                                '',
+                                $project->budget,
+                                $ayuda,
+                                $project->who_help,
+                                $project->whohelp,
+                                $project->helpcount,
+                                '',
+                                $familia]));
+                    endif;
+
         endforeach;
+
+
+        endforeach;
+
         $data =[];
-       array_push($data,$encabezado,$content);
+       array_push($data,$encabezado,$content,$contentmaxi);
 
         Excel::create('Lista de Proyectos y Lideres', function($excel) use($data) {
 
@@ -264,5 +299,49 @@ $members = Member::where('project_id',$project->id)->get();
             });
 
         })->export('xls');
+    }
+
+    public function pdfLeaderProject()
+    {
+        Fpdf::AddPage();
+        Fpdf::SetFont('Courier', 'B', 18);
+        Fpdf::Cell(0, 7, 'Honduras Startup',0,1,'C');
+        Fpdf::SetFont('Courier', 'B', 14);
+        Fpdf::Cell(0, 7, 'Lista de Lideres',0,1,'C');
+
+
+
+        Fpdf::Ln(14);
+        Fpdf::SetFont('Courier', 'B', 12);
+        Fpdf::Cell(10, 7, '#',1,0,'C');
+        Fpdf::Cell(40, 7, 'Cedula',1,0,'C');
+        Fpdf::Cell(36, 7, 'Nombres',1,0,'C');
+        Fpdf::Cell(27, 7, 'Apellido 1',1,0,'C');
+        Fpdf::Cell(27, 7, 'Apellido 2',1,0,'C');
+        Fpdf::Cell(25, 7, 'Celular',1,0,'C');
+        Fpdf::Cell(25, 7, 'Telefono',1,1,'C');
+        Fpdf::Cell(0, 7, 'Direccion',1,1,'C');
+
+        $projects = Project::wherehas('membersLeader',function ($q){
+            $q->where('type','leader');
+        })->with('membersLeader')->get();
+        $i=0;
+        foreach ($projects As $project):
+            $i++;
+            Fpdf::SetFont('Courier', 'I', 12);
+            Fpdf::Cell(10, 7, $i,1,0,'C');
+            Fpdf::Cell(40, 7, $project->membersLeader[0]->idnumber,1,0,'C');
+            Fpdf::Cell(36, 7,ucwords(utf8_decode(substr($project->membersLeader[0]->fname,0,45))),1,0,'L');
+            Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($project->membersLeader[0]->flname,0,45))),1,0,'L');
+            Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($project->membersLeader[0]->slname,0,45))),1,0,'L');
+            Fpdf::Cell(25, 7, ((($project->membersLeader[0]->cellphone))),1,0,'L');
+            Fpdf::Cell(25, 7, ((($project->membersLeader[0]->phone))),1,1,'L');
+            Fpdf::Cell(0, 7, strtolower(utf8_decode(substr($project->membersLeader[0]->address,0,45))),1,1,'L');
+            // Fpdf::Cell(20, 7, 'L. '.number_format($project->budget,2),1,1,'C');
+            //  Fpdf::Cell(80, 7, ucwords(strtolower(utf8_decode($project->members_leader[0]->fname))),1,1,'L');
+
+        endforeach;
+        Fpdf::Output();
+        exit;
     }
 }
