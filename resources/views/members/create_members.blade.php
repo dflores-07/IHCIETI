@@ -1,7 +1,7 @@
 @extends('layouts.system')
 <head>
     <meta charset="utf-8" />
-    <title>Honduras Startup - Emprendimiento Tradicional</title>   <style type="text/css">
+    <title>Honduras Startup | Emprendimiento Tradicional</title>   <style type="text/css">
 
 
         body {
@@ -100,11 +100,15 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Nombre
+                    Nombres de Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
+<<<<<<< HEAD
                     <input placeholder="Primer Nombre Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
+=======
+                    <input placeholder="Nombres de Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
+>>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
                     @if ($errors->has('fname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('fname') }}</strong>
@@ -114,7 +118,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Primer Apellido
+                    Primer Apellido Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
@@ -128,7 +132,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <label class="title">
-                    Segundo Apellido
+                    Segundo Apellido Miembro
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
@@ -199,7 +203,7 @@
             </div>
             <div class="col-sm-4 col-md-4">
                 <div class="element-select" title="Municipios">
-                    <label class="title"><span class="required">Municipios</span></label>
+                    <label class="title"><span class="required">Municipio</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                         <select name="city"  id="city" class="form-control" >
@@ -237,7 +241,7 @@
             </div>
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Correo Electrónico</label>
+                <label class="title">Correo Electrónico Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                     <input placeholder="Correo Electrónico Miembro" class="form-control" type="email" value="{{old('email')}}" name="email" />
@@ -251,7 +255,7 @@
 
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Teléfono Fijo</label>
+                <label class="title">Teléfono Fijo Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                     <input placeholder="Teléfono Fijo Miembro" class="form-control" type="teléfono"  value="{{old('phone')}}" name="phone" />
@@ -265,7 +269,7 @@
 
 
             <div class="col-sm-4 col-md-4">
-                <label class="title">Teléfono Celular</label>
+                <label class="title">Teléfono Celular Miembro</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
                     <input placeholder="Teléfono Celular Miembro" class="form-control" type="Celular" value="{{old('cellphone')}}" name="cellphone"  />
@@ -282,7 +286,11 @@
                 <label class="title">Dirección Exacta</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+<<<<<<< HEAD
                     <input placeholder="Dirección Exacta Miembro" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
+=======
+                    <input placeholder="Dirección Exacta" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
+>>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
                     @if ($errors->has('address'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('address') }}</strong>
@@ -298,7 +306,11 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <p class="text-center"> Honduras Startup - Emprendimiento Tradicional </p>
+=======
+        <p class="text-center"> Hondurastartup | Emprendimiento Tradicional </p>
+>>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
     </form>
 </div>
 

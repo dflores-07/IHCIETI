@@ -14,4 +14,9 @@ class Project extends Model
     {
         return $this->hasMany('App\Member','project_id','id');
     }
+
+    public function membersLeader()
+    {
+        return $this->hasMany('App\Member','project_id','id')->where('type','leader');
+    }
 }
