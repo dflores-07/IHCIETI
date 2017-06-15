@@ -83,8 +83,8 @@ class ProjectController extends Controller
         Fpdf::Ln(14);
         Fpdf::SetFont('Courier', 'B', 12);
         Fpdf::Cell(10, 7, '#',1,0,'C');
-        Fpdf::Cell(35, 7, 'Cedula',1,0,'C');
-        Fpdf::Cell(41, 7, 'Nombres',1,0,'C');
+        Fpdf::Cell(40, 7, 'Cedula',1,0,'C');
+        Fpdf::Cell(36, 7, 'Nombres',1,0,'C');
         Fpdf::Cell(27, 7, 'Apellido 1',1,0,'C');
         Fpdf::Cell(27, 7, 'Apellido 2',1,0,'C');
         Fpdf::Cell(25, 7, 'Celular',1,0,'C');
@@ -99,8 +99,8 @@ class ProjectController extends Controller
             $i++;
             Fpdf::SetFont('Courier', 'I', 12);
             Fpdf::Cell(10, 7, $i,1,0,'C');
-            Fpdf::Cell(35, 7, $project->membersLeader[0]->idnumber,1,0,'C');
-            Fpdf::Cell(41, 7,ucwords(utf8_decode(substr($project->membersLeader[0]->fname,0,45))),1,0,'L');
+            Fpdf::Cell(40, 7, $project->membersLeader[0]->idnumber,1,0,'C');
+            Fpdf::Cell(36, 7,ucwords(utf8_decode(substr($project->membersLeader[0]->fname,0,45))),1,0,'L');
             Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($project->membersLeader[0]->flname,0,45))),1,0,'L');
             Fpdf::Cell(27, 7, ucwords(utf8_decode(substr($project->membersLeader[0]->slname,0,45))),1,0,'L');
             Fpdf::Cell(25, 7, ((($project->membersLeader[0]->cellphone))),1,0,'L');
