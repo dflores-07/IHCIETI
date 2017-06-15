@@ -86,11 +86,12 @@
         <div class="row">{{csrf_field()}}
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">
-                    Numero Cédula
+                    Numero Cédula (Sin guíones)
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" id="idnumber" min="0" max="18" name="idnumber"  placeholder="Número de Identidad Lider" value="{{old('idnumber')}}"/>
+                    <input class="form-control" type="text" id="idnumber" min="0" max="18" name="idnumber"  placeholder="Número de Identidad - Sin guíones" value="{{old('idnumber')}}"/>
+                   
                     @if ($errors->has('idnumber'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('idnumber') }}</strong>
@@ -118,7 +119,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
-                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
+                    <input placeholder="Primer Apellido Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
                     @if ($errors->has('flname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('flname') }}</strong>
@@ -161,6 +162,7 @@
             </div>
 
             <div class="col-sm-4 col-md-4 formulario">
+                <label class="title">Género del Lider</label>
                 <div class="radio">
                     <input type="radio" name="gender"  id="hombre"  @if (old('gender') == 'Masculino') checked @endif />
                     <label for="hombre">Hombre</label>
@@ -220,6 +222,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
                         <select name="school"  class="form-control" >
+                            <option value="Primaria" @if (old('school') == 'Primaria') selected="selected" @endif>Primaria</option>
                             <option value="Secundaria" @if (old('school') == 'Secundaria') selected="selected" @endif>Secundaria</option>
                             <option value="Universitaria" @if (old('school') == 'Universitaria') selected="selected" @endif>Universitaria</option>
                             <option value="Postgrado" @if (old('school') == 'Postgrado') selected="selected" @endif>Postgrado</option>
@@ -296,10 +299,9 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user-plus"></i></span>
                         <select name="acount"  class="form-control" >
-                            <option value="">Uno</option>
-                            <option value="1">Dos</option>
-                            <option value="2">Tres</option>
-                            <option value="3">Cuatro</option>
+                            <option value="3">Tres</option>
+                            <option value="4">Cuatro</option>
+                             <option value="5">Cinco</option>
                         </select>
                         @if ($errors->has('acount'))
                             <span class="help-block  alert-danger">
@@ -315,7 +317,7 @@
                 </div>
             </div>
         </div>
-     <p class="text-center">Hondurastartup MiPyme</p>
+     <p class="text-center">Honduras Startup - Emprendimiento Tradicional</p>
     </form>
 </div>
 

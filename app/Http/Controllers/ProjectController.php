@@ -37,12 +37,17 @@ class ProjectController extends Controller
     {
         //Capturamos el archivo enviado por el usaurio
         $file = $request->file('budgetfile');
+       
+     if(!empty($file)) {
         //lo guardamos en el sistema con el nombre del proyecto que pertenece
         \Storage::disk('local')->put($request->get('name'),  \File::get($file));
         //recibimos todos los campos
-        $datos = $request->all();
+        
         //cambiamos el campo budgetfile con la extencion del archivo que subieron
         $datos['budgetfile']= $file->getClientOriginalExtension();
+       }
+       
+       $datos = $request->all();
         //mandamos a llamar el modelo
         $project = new Project();
         //verificamos todos los campos
@@ -55,7 +60,7 @@ class ProjectController extends Controller
             $m->from('no-reply@hondurastartup.com','IHCIETI');
 
             //receptor
-            $m->to($project->members()->where('type','leader')->first()->email, $project->members()->where('type','leader')->first()->nameComplete())->subject("Registro de Projecto");
+            $m->to($project->members()->where('type','leader')->first()->email, $project->members()->where('type','leader')->first()->nameComplete())->subject("Registro de Proyecto");
 
         });
         return redirect()->route('fin', $project);

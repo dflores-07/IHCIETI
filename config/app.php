@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Robots - Drone Challenge',
+    'name' => 'Honduras Startup - Emprenedimiento Tradicional',
 
     /*
     |--------------------------------------------------------------------------

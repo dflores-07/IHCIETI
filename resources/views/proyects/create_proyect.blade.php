@@ -90,15 +90,15 @@
         <div class="row">{{csrf_field()}}
             <div class="col-sm-12 col-md-12" title="Número de Identidad Lider">
                 <label class="title">
-                    Codigo del Proyecto
+                    Código del Proyecto
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" readonly  name="code" value="{{$code}}" required="required" placeholder="Codigo del Proyecto" />
+                    <input class="form-control" type="text" readonly  name="code" value="{{$code}}" required="required" placeholder="Código del Proyecto" />
                     <input class="form-control" type="hidden"   name="token" value="{{$token}}"  />
                 </div>
             </div>
-            <div class="col-sm-6 col-md-6" title="Número de Identidad Lider">
+            <div class="col-sm-6 col-md-6" title="Nombre del Proyecto">
                 <label class="title">
                     Nombre del Proyecto
                 </label>
@@ -109,20 +109,20 @@
             </div>
             <div class="col-sm-6 col-md-6">
                 <label class="title">
-                    Presupuesto
+                    Presupuesto que necesita para su proyecto (sin comas ni puntos)
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-                    <input placeholder="20000.00" type="number" class="form-control"  name="budget" required="required"/>
+                    <input placeholder="SOLO INGRESE NÚMEROS" type="number" class="form-control"  name="budget" required="required"/>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6">
                 <label class="title">
-                    Descripcion
+                    Descripción breve de tu Proyecto
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <textarea rows="4" cols="60" name="description"></textarea>
+                <textarea rows="4" cols="60" placeholder="Escriba una breve descripción de su proyecto" name="description"></textarea>
                 </div>
             </div>
             <div class="col-sm-6 col-md-6">
@@ -136,7 +136,7 @@
             </div>
             <div class="col-sm-6 col-md-6">
                 <label class="title">
-                    Sector
+                    Sector de tu Proyecto
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
@@ -147,7 +147,7 @@
 
 
             <div class="col-sm-3 col-md-3 formulario">
-                <label>Ha recibido Ayuda?</label>
+                <label>¿Ha recibido ayuda anteriormente?</label>
                 <div class="radio">
                     <input type="radio" name="has_received_help"  id="si"  @if (old('has_received_help') == 'si') checked @endif />
                     <label for="si">Si</label>
@@ -161,10 +161,10 @@
                 </div>
             </div>
             <div id="who_helpDiv" class="col-sm-3 col-md-3 formulario ocultar"  >
-                <label>Que tipo de ayuda ha Recibido</label>
+                <label>Que tipo de ayuda has Recibido</label>
                 <div class="radio">
                     <input type="radio" name="who_helpOther"  id="tecnica"  @if (old('who_helpOther') == 'tecnica') checked @endif />
-                    <label for="tecnica">Tecnica</label>
+                    <label for="tecnica">Técnica</label>
                     <input type="radio" id="financiera" name="who_helpOther"   @if (old('who_helpOther') == 'financiera') checked @endif />
                     <label for="financiera">Financiera</label>
                     @if ($errors->has('who_helpOther'))
@@ -175,7 +175,7 @@
                 </div>
             </div>
             <div id="whoHelpDiv" class="col-sm-3 col-md-3 formulario ocultar"  >
-                <label>Quien le Ayudo?</label>
+                <label>Quien le Ayudó? (Seleccione uno)</label>
                 <div class="radio">
                     <input type="radio" name="who_has_received_help"  id="BancaPrivada"  @if (old('who_has_received_help') == 'Banca Privada') checked @endif />
                     <label for="BancaPrivada">Banca Privada</label>
@@ -194,16 +194,16 @@
             </div>
             <div id="helpcount" class="col-sm-6 col-md-6 ocultar ">
                 <div class="element-select" title="Departamento">
-                    <label class="title"><span class="required">Monto Recibido</span></label>
+                    <label class="title"><span class="required">Monto recibido (sin comas ni punto)</span></label>
                     <div class="input-group">
                         <span class="input-group-addon"> <i class="fa fa-heart"></i></span>
-                        <input type="number"    name="helpcount" class="form-control" placeholder="15000.00">
+                        <input type="number"    name="helpcount" class="form-control" placeholder="15000">
                     </div>
                 </div>
             </div>
 
             <div id="whoUseHelp" class="col-sm-12 col-md-12 ocultar">
-                <label class="element-radio" title="Género">Como Utilizo la Ayuda</label>
+                <label class="element-radio" title="Género">¿Como Utilizó la Ayuda?</label>
                 <div class="input-group">
                     <span class="input-group-addon"> <i class="fa fa-codepen"></i></span>
                     <textarea rows="5" cols="100%" name="whohelp"> </textarea>
@@ -213,7 +213,7 @@
 
 
             <div class="col-sm-3 col-md-3 formulario">
-                <label>Es un Negocio Familiar?</label>
+                <label>¿Es un Negocio Familiar?</label>
                 <div class="radio">
                     <input type="radio" name="type_project"  id="sis"  @if (old('type_project') == 'si') checked @endif />
                     <label for="sis">Si</label>
@@ -233,7 +233,7 @@
                 </div>
             </div>
         </div>
-     <p class="frmd"> Hondurastartup MiPyme </p>
+     <p class="frmd"> Honduras Startup - Emprendimiento Tradicional </p>
     </form>
 </div>
            <!-- Finaliza Formulario-->

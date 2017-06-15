@@ -84,11 +84,11 @@
         <div class="row">{{csrf_field()}}
             <div class="col-sm-4 col-md-4" title="Número de Identidad Lider">
                 <label class="title">
-                    Numero Cédula
+                    Numero Cédula (sin guíones)
                 </label>
                 <div class="input-group ">
                     <span class="input-group-addon"><i class="fa fa-bell"></i></span>
-                    <input class="form-control" type="text" min="0" max="18" name="idnumber"  placeholder="Número de Identidad Lider" value="{{old('idnumber')}}"/>
+                    <input class="form-control" type="text" min="0" max="18" name="idnumber"  placeholder="Número de Identidad Miembro (Sin Guíones)" value="{{old('idnumber')}}"/>
                     <input class="form-control" type="hidden" name="token"   value="{{$token}}"/>
                     <input class="form-control" type="hidden" name="acount"   value="{{$acount}}"/>
                     @if ($errors->has('idnumber'))
@@ -104,7 +104,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input placeholder="Primer Nombre Lider" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
+                    <input placeholder="Primer Nombre Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
                     @if ($errors->has('fname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('fname') }}</strong>
@@ -118,7 +118,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-bed"></i></span>
-                    <input placeholder="Segundo Nombre Lider" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
+                    <input placeholder="Primer Apellido Miembro" type="text" class="form-control" size="14" value="{{old('flname')}}" name="flname" />
                     @if ($errors->has('flname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('flname') }}</strong>
@@ -132,7 +132,7 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-address-card"></i></span>
-                    <input placeholder="Segundo Apellido Lider" type="text" class="form-control" size="14" value="{{old('slname')}}" name="slname" />
+                    <input placeholder="Segundo Apellido Miembro" type="text" class="form-control" size="14" value="{{old('slname')}}" name="slname" />
                     @if ($errors->has('slname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('slname') }}</strong>
@@ -160,6 +160,7 @@
             </div>
 
             <div class="col-sm-4 col-md-4 formulario">
+                <label class="title">Género</label>
                 <div class="radio">
                     <input type="radio" name="gender"  id="hombre"  @if (old('gender') == 'Masculino') checked @endif />
                     <label for="hombre">Hombre</label>
@@ -219,6 +220,7 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
                         <select name="school" class="form-control"  >
+                            <option value="Primaria" @if (old('school') == 'Primaria') selected="selected" @endif>Primaria</option>
                             <option value="Secundaria" @if (old('school') == 'Secundaria') selected="selected" @endif>Secundaria</option>
                             <option value="Universitaria" @if (old('school') == 'Universitaria') selected="selected" @endif>Universitaria</option>
                             <option value="Postgrado" @if (old('school') == 'Postgrado') selected="selected" @endif>Postgrado</option>
@@ -238,7 +240,7 @@
                 <label class="title">Correo Electrónico</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                    <input placeholder="Correo Electrónico Lider" class="form-control" type="email" value="{{old('email')}}" name="email" />
+                    <input placeholder="Correo Electrónico Miembro" class="form-control" type="email" value="{{old('email')}}" name="email" />
                     @if ($errors->has('email'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -252,7 +254,7 @@
                 <label class="title">Teléfono Fijo</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                    <input placeholder="Teléfono Fijo Lider" class="form-control" type="teléfono"  value="{{old('phone')}}" name="phone" />
+                    <input placeholder="Teléfono Fijo Miembro" class="form-control" type="teléfono"  value="{{old('phone')}}" name="phone" />
                     @if ($errors->has('phone'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('phone') }}</strong>
@@ -266,7 +268,7 @@
                 <label class="title">Teléfono Celular</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-                    <input placeholder="Teléfono Celular Lider" class="form-control" type="Celular" value="{{old('cellphone')}}" name="cellphone"  />
+                    <input placeholder="Teléfono Celular Miembro" class="form-control" type="Celular" value="{{old('cellphone')}}" name="cellphone"  />
                     @if ($errors->has('cellphone'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('cellphone') }}</strong>
@@ -280,7 +282,7 @@
                 <label class="title">Dirección Exacta</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                    <input placeholder="Dirección Exacta Lider" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
+                    <input placeholder="Dirección Exacta Miembro" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
                     @if ($errors->has('address'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('address') }}</strong>
@@ -296,7 +298,7 @@
                 </div>
             </div>
         </div>
-        <p class="text-center"> Hondurastartup MiPyme </p>
+        <p class="text-center"> Honduras Startup - Emprendimiento Tradicional </p>
     </form>
 </div>
 
