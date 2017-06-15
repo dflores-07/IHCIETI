@@ -116,7 +116,7 @@ class ProjectController extends Controller
 
     public function excelLeaderProject()
     {
-        $data = [
+        $encabezado = [
             'Identidad del Lider',
             'Nombres Lider',
             '1 Apellido Lider',
@@ -147,42 +147,70 @@ class ProjectController extends Controller
             'Como utilizo la ayuda',
             'Negocio Familiar'
         ];
+
         $projects = Project::with('members')->get();
         foreach ($projects As $project):
 
-          $encabezado =  [
-              '',
-              'Nombres Lider',
-              '1 Apellido Lider',
-              '2 Apellido Lider',
-              'Celular Lider',
-              'Teléfono Fijo Lider',
-              'Email Lider',
-              'Genero',
-              'Dirección',
-              'Identidad del miembro',
-              'Nombres miembro',
-              '1 Apellido Miembro',
-              '2 Apellido Miembro',
-              'Celular Miembro',
-              'Teléfono Fijo miembro',
-              'Email Miembro',
-              'Genero',
-              'Dirección',
-              $project->code,
-              $project->name,
-              $project->sector,
-              '',
-              $project->budget,
-              $project->has_received_help,
-              $project->who_help,
-              $project->whohelp,
-              $project->helpcount,
-              '',
-              $project->type_project];
-        endforeach;
-          $data[]= $encabezado;
 
+$members = Member::where('project_id',$project->id)->get();
+
+            foreach ($members AS $member):
+
+                if($member->type=='leader'):
+                    if($member->gender=='on'):
+                        $gender ='Hombre';
+                        else:
+                            $gender = 'Mujer';
+                            endif;
+            $content=  [
+                $member->idnumber,
+                $member->fname,
+                $member->flname,
+                $member->slname,
+                $member->cellphone,
+                $member->phone,
+                $member->email,
+                $gender,
+                $member->address];
+            endif;
+            if($member->type=='members'):
+
+                    if($member->gender=='on'):
+                        $gender ='Hombre';
+                    else:
+                        $gender = 'Mujer';
+                    endif;
+                    array_push($content, $member->idnumber, $member->fname,$member->flname,
+                        $member->slname, $member->cellphone, $member->phone, $member->email,
+                        $gender, $member->address);
+            endif;
+        endforeach;
+        if($project->has_received_help=='on'):
+
+            $ayuda ='si';
+        else:
+            $ayuda = 'no';
+        endif;
+            if($project->type_project=='on'):
+
+                $familia ='si';
+            else:
+                $familia = 'no';
+            endif;
+        array_push($content,$project->code,
+            $project->name,
+            $project->sector,
+            '',
+            $project->budget,
+            $ayuda,
+            $project->who_help,
+            $project->whohelp,
+            $project->helpcount,
+            '',
+            $familia);
+        endforeach;
+        $data =[];
+       array_push($data,$encabezado,$content);
 
         Excel::create('Lista de Proyectos y Lideres', function($excel) use($data) {
 
@@ -199,9 +227,25 @@ class ProjectController extends Controller
             $excel->sheet('Lista Projectos', function($sheet) use($data) {
 
                 $sheet->setOrientation('landscape');
+                $bordeCount = 'A2:AC'.count($data);
+                $sheet->setBorder('A1:AC1', 'thick');
+                $sheet->setBorder($bordeCount, 'thin');
+
+                $sheet->cells('A1:AC1', function($cells) {
+
+                    // Set font family
+                    $cells->setFontFamily('Calibri');
+                    // Set font size
+                    $cells->setFontSize(16);
+
+                    $cells->setFontWeight('bold');
+
+
+                });
                 $sheet->cells('A1:I1', function($cells) {
 
                     $cells->setBackground('#91bbe3');
+
 
                 });
                 $sheet->cells('J1:R1', function($cells) {
@@ -214,7 +258,7 @@ class ProjectController extends Controller
                     $cells->setBackground('#69ae71');
 
                 });
-                $sheet->fromArray($data);
+                $sheet->fromArray($data, null, 'A1', false, false);
 
 
             });
