@@ -76,5 +76,16 @@ class Member extends Model
     {
         return $this->fname.' '. $this->flname.' '. $this->slname;
     }
+
+    public function getGenderAttribute($data)
+    {
+        if($data == 'on'):
+            $ayuda ='Hombre';
+        else:
+            $ayuda = 'Mujer';
+        endif;
+
+        return $ayuda;
+    }
    
 }

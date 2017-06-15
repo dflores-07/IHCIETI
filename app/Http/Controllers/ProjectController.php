@@ -176,76 +176,60 @@ class ProjectController extends Controller
             'Como utilizo la ayuda',
             'Negocio Familiar'
         ];
-$content=[];
-        $contentmaxi=[];
-        $o =0;
+
+        $data =[];
+        array_push($data,$encabezado);
 
         $projects = Project::with('members')->get();
         foreach ($projects As $project):
 
+        //datos del proyecto
 
-    $members = Member::where('project_id',$project->id)->get();
-            if($project->has_received_help=='on'):
-                $ayuda ='si';
-            else:
-                $ayuda = 'no';
-            endif;
-
-            if($project->type_project=='on'):
-
-                $familia ='si';
-            else:
-                $familia = 'no';
-            endif;
+            foreach ($project->members As $key => $member):
 
 
+                //datos de los miembros
+                if($key == 0)continue;
 
-            foreach ($members AS $member):
-                $o++;
-                if($member->gender=='on'):
-                    $gender ='Hombre';
-                else:
-                    $gender = 'Mujer';
-                endif;
+                $row = [
+                    $project->members[0]->idnumber,
+                    $project->members[0]->fname,
+                    $project->members[0]->flname,
+                    $project->members[0]->slname,
+                    $project->members[0]->cellphone,
+                    $project->members[0]->phone,
+                    $project->members[0]->email,
+                    $project->members[0]->gender,
+                    $project->members[0]->address,
+                    $member->idnumber,
+                    $member->fname,
+                    $member->flname,
+                    $member->slname,
+                    $member->cellphone,
+                    $member->phone,
+                    $member->email,
+                    $member->gender,
+                    $member->address,
+                    $project->code,
+                    $project->name,
+                    $project->sector,
+                    '',
+                    $project->budget,
+                    $project->who_has_received_help,
+                    $project->who_help,
+                    '',
+                    $project->whocount,
+                    $project->whohelp,
+                    $project->type_project
+                ];
 
 
-                    if($member->type=='leader'):
-                    $leader =[$member->idnumber,
-                        $member->fname,
-                        $member->flname,
-                        $member->slname,
-                        $member->cellphone,
-                        $member->phone,
-                        $member->email,
-                        $gender,
-                        $member->address];
 
-                    endif;
 
-                    if($member->type=='members'):
-                            //agregamos los miembros con sus proyectos
-                        array_push($content,  array_merge_recursive($leader,[ $member->idnumber, $member->fname,$member->flname,
-                                $member->slname, $member->cellphone, $member->phone, $member->email,
-                                $gender, $member->address,$project->code,
-                                $project->name,
-                                $project->sector,
-                                '',
-                                $project->budget,
-                                $ayuda,
-                                $project->who_help,
-                                $project->whohelp,
-                                $project->helpcount,
-                                '',
-                                $familia]));
-                    endif;
-
+                    array_push($data,$row);
+            endforeach;
         endforeach;
 
-
-        endforeach;
-
-        $data =[];
-       array_push($data,$encabezado,$content,$contentmaxi);
 
         Excel::create('Lista de Proyectos y Lideres', function($excel) use($data) {
 

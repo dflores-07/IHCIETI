@@ -12,11 +12,33 @@ class Project extends Model
 
     public function members()
     {
-        return $this->hasMany('App\Member','project_id','id');
+        return $this->hasMany('App\Member','project_id','id')->orderBy('type','DESC');
     }
 
     public function membersLeader()
     {
-        return $this->hasMany('App\Member','project_id','id')->where('type','leader');
+        return $this->hasMany('App\Member','project_id','id')->where('type','members');
+    }
+
+    public function getWhoHasReceivedHelpAttribute($data)
+    {
+        if($data == 'on'):
+            $ayuda ='si';
+        else:
+            $ayuda = 'no';
+        endif;
+
+        return $ayuda;
+    }
+
+    public function getTypeProjectAttribute($data)
+    {
+        if($data == 'on'):
+            $ayuda ='si';
+        else:
+            $ayuda = 'no';
+        endif;
+
+        return $ayuda;
     }
 }
