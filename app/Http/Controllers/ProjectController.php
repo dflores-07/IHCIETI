@@ -76,7 +76,7 @@ class ProjectController extends Controller
         Fpdf::SetFont('Courier', 'B', 18);
         Fpdf::Cell(0, 7, 'Honduras Startup',0,1,'C');
         Fpdf::SetFont('Courier', 'B', 14);
-        Fpdf::Cell(0, 7, 'Lista de Proyectos y Lideres',0,1,'C');
+        Fpdf::Cell(0, 7, 'Lista de Lideres',0,1,'C');
 
 
 
