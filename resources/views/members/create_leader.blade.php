@@ -222,11 +222,8 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
                         <select name="school"  class="form-control" >
-<<<<<<< HEAD
                             <option value="Primaria" @if (old('school') == 'Primaria') selected="selected" @endif>Primaria</option>
-=======
-                             <option value="Primaria" @if (old('school') == 'Primaria') selected="selected" @endif>Primaria</option>
->>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
+
                             <option value="Secundaria" @if (old('school') == 'Secundaria') selected="selected" @endif>Secundaria</option>
                             <option value="Universitaria" @if (old('school') == 'Universitaria') selected="selected" @endif>Universitaria</option>
                             <option value="Postgrado" @if (old('school') == 'Postgrado') selected="selected" @endif>Postgrado</option>
@@ -321,12 +318,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-     <p class="text-center">Honduras Startup - Emprendimiento Tradicional</p>
-=======
+
      <p class="text-center">Hondurastartup | Emprendimiento Tradicional 2017</p>
->>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
-    </form>
+</form>
 </div>
 
 

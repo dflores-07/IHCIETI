@@ -104,11 +104,9 @@
                 </label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-<<<<<<< HEAD
-                    <input placeholder="Primer Nombre Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
-=======
+
                     <input placeholder="Nombres de Miembro" class="form-control" type="text" value="{{old('fname')}}" size="8" name="fname" />
->>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
+
                     @if ($errors->has('fname'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('fname') }}</strong>
@@ -286,11 +284,9 @@
                 <label class="title">Dirección Exacta</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-<<<<<<< HEAD
-                    <input placeholder="Dirección Exacta Miembro" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
-=======
+
                     <input placeholder="Dirección Exacta" class="form-control" type="address"  value="{{old('address')}}" name="address"  />
->>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
+
                     @if ($errors->has('address'))
                         <span class="help-block  alert-danger">
                             <strong>{{ $errors->first('address') }}</strong>
@@ -306,11 +302,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
+
         <p class="text-center"> Honduras Startup - Emprendimiento Tradicional </p>
-=======
-        <p class="text-center"> Hondurastartup | Emprendimiento Tradicional </p>
->>>>>>> afff009c997647d49fd2f291da35f4ecf77ecb9e
+
     </form>
 </div>
 
